@@ -1,0 +1,10 @@
+<main>
+  <h2>{{ collection.title }}</h2>
+  <ul>
+    {% for product in collection.products %}
+      <li>
+        <a href="{{ product.url }}">{{ product.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</main> 

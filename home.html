@@ -1,0 +1,1084 @@
+<html lang="pt-BR"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoggyShine - Acessórios Premium para Pets</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .scrolling-text {
+            white-space: nowrap;
+            animation: scroll 20s linear infinite;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        .category-carousel::-webkit-scrollbar,
+        .product-carousel::-webkit-scrollbar,
+        .reviews-carousel::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .category-carousel,
+        .product-carousel,
+        .reviews-carousel {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .category-item {
+            transition: transform 0.3s ease;
+        }
+        
+        .category-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .sidebar {
+            transition: transform 0.3s ease;
+        }
+        
+        .cart-sidebar {
+            transition: transform 0.3s ease;
+        }
+        
+        .crown-icon {
+            display: inline-block;
+            transform: translateY(-2px);
+        }
+        
+        /* Custom animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        /* Carousel navigation */
+        .carousel-container {
+            position: relative;
+        }
+        
+        .carousel-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-nav-button:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        
+        .carousel-nav-button.prev {
+            left: 0;
+        }
+        
+        .carousel-nav-button.next {
+            right: 0;
+        }
+        
+        /* Menu button styling */
+        .menu-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-button:hover {
+            background-color: #333;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .product-grid > div:nth-child(3) {
+                display: block;
+                opacity: 0.3;
+                pointer-events: none;
+            }
+            
+            .carousel-nav-button {
+                width: 32px;
+                height: 32px;
+            }
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.-right-2{right:-0.5rem}.-top-2{top:-0.5rem}.left-0{left:0px}.left-3{left:0.75rem}.right-0{right:0px}.top-0{top:0px}.top-1\/2{top:50%}.z-40{z-index:40}.z-50{z-index:50}.mx-2{margin-left:0.5rem;margin-right:0.5rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-1{margin-left:0.25rem}.mr-3{margin-right:0.75rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-16{height:4rem}.h-2{height:0.5rem}.h-20{height:5rem}.h-36{height:9rem}.h-5{height:1.25rem}.h-64{height:16rem}.h-full{height:100%}.w-10{width:2.5rem}.w-16{width:4rem}.w-20{width:5rem}.w-36{width:9rem}.w-48{width:12rem}.w-5{width:1.25rem}.w-64{width:16rem}.w-72{width:18rem}.w-80{width:20rem}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-xl{max-width:36rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.-translate-x-full{--tw-translate-x:-100%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-x-full{--tw-translate-x:100%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-8{gap:2rem}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-8 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(2rem * var(--tw-space-x-reverse));margin-left:calc(2rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.rounded{border-radius:0.25rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-l-lg{border-top-left-radius:0.5rem;border-bottom-left-radius:0.5rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-black{--tw-border-opacity:1;border-color:rgb(0 0 0 / var(--tw-border-opacity, 1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1))}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity, 1))}.border-gray-800{--tw-border-opacity:1;border-color:rgb(31 41 55 / var(--tw-border-opacity, 1))}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-gray-800{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-opacity-50{--tw-bg-opacity:0.5}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.pb-4{padding-bottom:1rem}.pb-6{padding-bottom:1.5rem}.pl-10{padding-left:2.5rem}.pr-4{padding-right:1rem}.pt-12{padding-top:3rem}.pt-4{padding-top:1rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.text-right{text-align:right}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.tracking-tighter{letter-spacing:-0.05em}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-green-600{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-yellow-400{--tw-text-opacity:1;color:rgb(250 204 21 / var(--tw-text-opacity, 1))}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:bg-gray-100:hover{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.hover\:bg-gray-800:hover{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity, 1))}.hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.hover\:text-black:hover{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.hover\:text-gray-600:hover{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.focus\:border-black:focus{--tw-border-opacity:1;border-color:rgb(0 0 0 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-1:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-black:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(0 0 0 / var(--tw-ring-opacity, 1))}@media (min-width: 640px){.sm\:h-48{height:12rem}.sm\:w-48{width:12rem}.sm\:flex-row{flex-direction:row}.sm\:space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.sm\:space-y-0 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0px * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0px * var(--tw-space-y-reverse))}.sm\:rounded-l-none{border-top-left-radius:0px;border-bottom-left-radius:0px}.sm\:rounded-r-none{border-top-right-radius:0px;border-bottom-right-radius:0px}}@media (min-width: 768px){.md\:mb-0{margin-bottom:0px}.md\:block{display:block}.md\:h-24{height:6rem}.md\:h-64{height:16rem}.md\:w-1\/2{width:50%}.md\:w-24{width:6rem}.md\:w-64{width:16rem}.md\:w-80{width:20rem}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:py-24{padding-top:6rem;padding-bottom:6rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width: 1024px){.lg\:flex{display:flex}.lg\:hidden{display:none}.lg\:w-64{width:16rem}.lg\:flex-none{flex:none}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:text-left{text-align:left}}</style></head>
+<body class="bg-white text-black">
+    <!-- Top announcement bar -->
+    <div class="bg-black text-white py-2 overflow-hidden">
+        <div class="scrolling-text">
+            FRETE GRÁTIS PARA COMPRAS ACIMA DE R$150 • GANHE UM BRINDE EXCLUSIVO NAS COMPRAS ACIMA DE R$150 • NOVOS PRODUTOS TODA SEMANA • FRETE GRÁTIS PARA COMPRAS ACIMA DE R$150
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <!-- Mobile menu button - Now more visible -->
+            <button id="menu-button" class="lg:hidden menu-button">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+            
+            <!-- Logo -->
+            <div class="flex-1 lg:flex-none text-center lg:text-left">
+                <a href="#" class="text-2xl font-bold tracking-tighter">
+                    <span class="text-black">Doggy</span><span class="text-gray-600">Shine</span>
+                </a>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="#" class="font-medium hover:text-gray-600 transition">Início</a>
+                <a href="#" class="font-medium hover:text-gray-600 transition">Produtos</a>
+                <a href="#" class="font-medium hover:text-gray-600 transition">DSClub</a>
+                <a href="#" class="font-medium hover:text-gray-600 transition">Sobre</a>
+                <a href="#" class="font-medium hover:text-gray-600 transition">Contato</a>
+            </nav>
+            
+            <!-- Search, Account, Cart -->
+            <div class="flex items-center space-x-4">
+                <div class="hidden md:block relative">
+                    <input type="text" placeholder="Buscar produtos..." class="pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-1 focus:ring-black focus:border-black text-sm w-48 lg:w-64">
+                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                </div>
+                <button class="text-black hover:text-gray-600 transition">
+                    <i class="fas fa-user text-xl"></i>
+                </button>
+                <button id="cart-button" class="text-black hover:text-gray-600 transition relative">
+                    <i class="fas fa-shopping-bag text-xl"></i>
+                    <span class="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile search bar -->
+        <div class="px-4 py-2 lg:hidden">
+            <div class="relative">
+                <input type="text" placeholder="Buscar produtos..." class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-1 focus:ring-black focus:border-black text-sm">
+                <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar Menu -->
+    <div id="sidebar" class="sidebar fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform -translate-x-full">
+        <div class="p-5">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-xl font-bold">Menu</h2>
+                <button id="close-menu" class="text-black">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <nav class="space-y-4">
+                <a href="#" class="block py-2 hover:text-gray-600 transition">Início</a>
+                <a href="#" class="block py-2 hover:text-gray-600 transition">Produtos</a>
+                <a href="#" class="block py-2 hover:text-gray-600 transition">Sobre nós</a>
+                <a href="#" class="block py-2 hover:text-gray-600 transition">Contato</a>
+                <a href="#" class="block py-2 hover:text-gray-600 transition">Blog</a>
+                <a href="#" class="block py-2 hover:text-gray-600 transition">FAQ</a>
+                <a href="#" class="block py-2 hover:text-gray-600 transition">Política de Privacidade</a>
+                
+                <div class="pt-4 mt-4 border-t border-gray-200">
+                    <a href="#" class="flex items-center justify-between bg-black text-white py-3 px-4 rounded-lg hover:bg-gray-800 transition">
+                        <span>DSClub</span>
+                        <span class="crown-icon">👑</span>
+                    </a>
+                    <p class="text-xs text-gray-500 mt-2">Assine e ganhe benefícios exclusivos!</p>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="cart-sidebar fixed top-0 right-0 h-full w-80 bg-white shadow-lg z-50 transform translate-x-full">
+        <div class="p-5 h-full flex flex-col">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-bold">Seu Carrinho</h2>
+                <button id="close-cart" class="text-black">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="flex-1 overflow-y-auto">
+                <!-- Cart items -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-4 pb-4 border-b border-gray-200">
+                        <div class="h-16 w-16 bg-gray-100 rounded-md flex items-center justify-center">
+                            <i class="fas fa-paw text-2xl text-gray-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-medium">Bandana Premium</h4>
+                            <p class="text-sm text-gray-500">Tamanho: M</p>
+                            <div class="flex items-center mt-1">
+                                <button class="text-xs bg-gray-200 px-2 py-1 rounded">-</button>
+                                <span class="mx-2 text-sm">1</span>
+                                <button class="text-xs bg-gray-200 px-2 py-1 rounded">+</button>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-medium">R$ 59,90</p>
+                            <button class="text-xs text-gray-500 mt-1">Remover</button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4 pb-4 border-b border-gray-200">
+                        <div class="h-16 w-16 bg-gray-100 rounded-md flex items-center justify-center">
+                            <i class="fas fa-bone text-2xl text-gray-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-medium">Coleira Tech</h4>
+                            <p class="text-sm text-gray-500">Tamanho: P</p>
+                            <div class="flex items-center mt-1">
+                                <button class="text-xs bg-gray-200 px-2 py-1 rounded">-</button>
+                                <span class="mx-2 text-sm">1</span>
+                                <button class="text-xs bg-gray-200 px-2 py-1 rounded">+</button>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-medium">R$ 79,90</p>
+                            <button class="text-xs text-gray-500 mt-1">Remover</button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4 pb-4">
+                        <div class="h-16 w-16 bg-gray-100 rounded-md flex items-center justify-center">
+                            <i class="fas fa-gift text-2xl text-gray-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-medium">Box Mensal</h4>
+                            <p class="text-sm text-gray-500">Plano: Básico</p>
+                            <div class="flex items-center mt-1">
+                                <button class="text-xs bg-gray-200 px-2 py-1 rounded">-</button>
+                                <span class="mx-2 text-sm">1</span>
+                                <button class="text-xs bg-gray-200 px-2 py-1 rounded">+</button>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-medium">R$ 89,90</p>
+                            <button class="text-xs text-gray-500 mt-1">Remover</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Free gift promo -->
+                <div class="mt-6 bg-gray-50 p-4 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="mr-3 text-xl">🎁</div>
+                        <div>
+                            <h4 class="font-medium">Brinde Grátis!</h4>
+                            <p class="text-sm text-gray-500">Adicione R$ 20,30 para ganhar um brinde exclusivo</p>
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                                <div class="bg-black h-2 rounded-full" style="width: 87%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cart summary -->
+            <div class="mt-6 pt-4 border-t border-gray-200">
+                <div class="flex justify-between mb-2">
+                    <span class="text-gray-600">Subtotal</span>
+                    <span class="font-medium">R$ 229,70</span>
+                </div>
+                <div class="flex justify-between mb-4">
+                    <span class="text-gray-600">Frete</span>
+                    <span class="font-medium text-green-600">Grátis</span>
+                </div>
+                <div class="flex justify-between text-lg font-bold mb-6">
+                    <span>Total</span>
+                    <span>R$ 229,70</span>
+                </div>
+                
+                <button class="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition">
+                    Finalizar Compra
+                </button>
+                <button class="w-full border border-black text-black py-3 rounded-lg mt-3 hover:bg-gray-100 transition">
+                    Continuar Comprando
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Banner -->
+        <section class="relative bg-black text-white">
+            <div class="container mx-auto px-4 py-16 md:py-24 flex flex-col items-center justify-center text-center">
+                <h1 class="text-3xl md:text-5xl font-bold mb-4">Elegância e Sofisticação para seu Pet</h1>
+                <p class="text-lg md:text-xl max-w-2xl mb-8">Acessórios premium que combinam estilo, conforto e tecnologia para o melhor amigo do homem.</p>
+                <a href="#" class="bg-white text-black px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition">
+                    Explorar Coleção
+                </a>
+            </div>
+        </section>
+
+        <!-- Categories Carousel -->
+        <section class="py-10 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-2xl font-bold mb-6">Categorias</h2>
+                
+                <div class="carousel-container relative">
+                    <button class="carousel-nav-button prev" id="category-prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <div class="category-carousel flex space-x-4 overflow-x-auto pb-4 px-6">
+                        <div class="category-item flex-shrink-0">
+                            <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gray-100 flex items-center justify-center shadow-sm">
+                                <i class="fas fa-dog text-2xl text-gray-600"></i>
+                            </div>
+                            <p class="text-center text-sm mt-2">Bandanas</p>
+                        </div>
+                        
+                        <div class="category-item flex-shrink-0">
+                            <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gray-100 flex items-center justify-center shadow-sm">
+                                <i class="fas fa-link text-2xl text-gray-600"></i>
+                            </div>
+                            <p class="text-center text-sm mt-2">Coleiras</p>
+                        </div>
+                        
+                        <div class="category-item flex-shrink-0">
+                            <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gray-100 flex items-center justify-center shadow-sm">
+                                <i class="fas fa-route text-2xl text-gray-600"></i>
+                            </div>
+                            <p class="text-center text-sm mt-2">Guias</p>
+                        </div>
+                        
+                        <div class="category-item flex-shrink-0">
+                            <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gray-100 flex items-center justify-center shadow-sm">
+                                <i class="fas fa-baseball-ball text-2xl text-gray-600"></i>
+                            </div>
+                            <p class="text-center text-sm mt-2">Brinquedos</p>
+                        </div>
+                        
+                        <div class="category-item flex-shrink-0">
+                            <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gray-100 flex items-center justify-center shadow-sm">
+                                <i class="fas fa-shower text-2xl text-gray-600"></i>
+                            </div>
+                            <p class="text-center text-sm mt-2">Cuidados</p>
+                        </div>
+                        
+                        <div class="category-item flex-shrink-0">
+                            <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gray-100 flex items-center justify-center shadow-sm">
+                                <i class="fas fa-box text-2xl text-gray-600"></i>
+                            </div>
+                            <p class="text-center text-sm mt-2">Box</p>
+                        </div>
+                        
+                        <div class="category-item flex-shrink-0">
+                            <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gray-100 flex items-center justify-center shadow-sm">
+                                <i class="fas fa-crown text-2xl text-gray-600"></i>
+                            </div>
+                            <p class="text-center text-sm mt-2">Assinaturas</p>
+                        </div>
+                        
+                        <div class="category-item flex-shrink-0">
+                            <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gray-100 flex items-center justify-center shadow-sm">
+                                <i class="fas fa-user-friends text-2xl text-gray-600"></i>
+                            </div>
+                            <p class="text-center text-sm mt-2">Membros</p>
+                        </div>
+                        
+                        <div class="category-item flex-shrink-0">
+                            <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gray-100 flex items-center justify-center shadow-sm">
+                                <i class="fas fa-user-tie text-2xl text-gray-600"></i>
+                            </div>
+                            <p class="text-center text-sm mt-2">Gravatas</p>
+                        </div>
+                        
+                        <div class="category-item flex-shrink-0">
+                            <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gray-100 flex items-center justify-center shadow-sm">
+                                <i class="fas fa-ribbon text-2xl text-gray-600"></i>
+                            </div>
+                            <p class="text-center text-sm mt-2">Lacinhos</p>
+                        </div>
+                        
+                        <div class="category-item flex-shrink-0">
+                            <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gray-100 flex items-center justify-center shadow-sm">
+                                <i class="fas fa-calendar-alt text-2xl text-gray-600"></i>
+                            </div>
+                            <p class="text-center text-sm mt-2">Temáticos</p>
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-nav-button next" id="category-next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Releases -->
+        <section class="py-10 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Lançamentos</h2>
+                    <a href="#" class="text-sm font-medium flex items-center hover:underline">
+                        Ver todos <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                    </a>
+                </div>
+                
+                <div class="carousel-container relative">
+                    <button class="carousel-nav-button prev" id="new-releases-prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <div class="product-carousel flex space-x-4 overflow-x-auto pb-4 px-6">
+                        <div class="product-card flex-shrink-0 w-36 sm:w-48 md:w-64 bg-white rounded-lg overflow-hidden shadow-sm">
+                            <div class="h-36 sm:h-48 md:h-64 bg-gray-100 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                                    <path d="M14.5 11c.83 0 1.5-.67 1.5-1.5S15.33 8 14.5 8 13 8.67 13 9.5s.67 1.5 1.5 1.5zm-5 2.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm9 2.5c-.55 0-1.05-.22-1.41-.59-.36-.36-.59-.86-.59-1.41 0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium">Bandana Tech</h3>
+                                <p class="text-sm text-gray-500 mb-2">Novo design</p>
+                                <p class="font-bold">R$ 59,90</p>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card flex-shrink-0 w-36 sm:w-48 md:w-64 bg-white rounded-lg overflow-hidden shadow-sm">
+                            <div class="h-36 sm:h-48 md:h-64 bg-gray-100 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                                    <path d="M14.5 11c.83 0 1.5-.67 1.5-1.5S15.33 8 14.5 8 13 8.67 13 9.5s.67 1.5 1.5 1.5zm-5 2.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm9 2.5c-.55 0-1.05-.22-1.41-.59-.36-.36-.59-.86-.59-1.41 0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium">Coleira Smart</h3>
+                                <p class="text-sm text-gray-500 mb-2">Com GPS</p>
+                                <p class="font-bold">R$ 129,90</p>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card flex-shrink-0 w-36 sm:w-48 md:w-64 bg-white rounded-lg overflow-hidden shadow-sm">
+                            <div class="h-36 sm:h-48 md:h-64 bg-gray-100 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                                    <path d="M14.5 11c.83 0 1.5-.67 1.5-1.5S15.33 8 14.5 8 13 8.67 13 9.5s.67 1.5 1.5 1.5zm-5 2.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm9 2.5c-.55 0-1.05-.22-1.41-.59-.36-.36-.59-.86-.59-1.41 0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium">Gravata Elegance</h3>
+                                <p class="text-sm text-gray-500 mb-2">Edição limitada</p>
+                                <p class="font-bold">R$ 49,90</p>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card flex-shrink-0 w-36 sm:w-48 md:w-64 bg-white rounded-lg overflow-hidden shadow-sm">
+                            <div class="h-36 sm:h-48 md:h-64 bg-gray-100 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                                    <path d="M14.5 11c.83 0 1.5-.67 1.5-1.5S15.33 8 14.5 8 13 8.67 13 9.5s.67 1.5 1.5 1.5zm-5 2.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm9 2.5c-.55 0-1.05-.22-1.41-.59-.36-.36-.59-.86-.59-1.41 0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium">Laço Premium</h3>
+                                <p class="text-sm text-gray-500 mb-2">Tecido especial</p>
+                                <p class="font-bold">R$ 39,90</p>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card flex-shrink-0 w-36 sm:w-48 md:w-64 bg-white rounded-lg overflow-hidden shadow-sm">
+                            <div class="h-36 sm:h-48 md:h-64 bg-gray-100 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                                    <path d="M14.5 11c.83 0 1.5-.67 1.5-1.5S15.33 8 14.5 8 13 8.67 13 9.5s.67 1.5 1.5 1.5zm-5 2.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm9 2.5c-.55 0-1.05-.22-1.41-.59-.36-.36-.59-.86-.59-1.41 0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium">Box Deluxe</h3>
+                                <p class="text-sm text-gray-500 mb-2">Kit completo</p>
+                                <p class="font-bold">R$ 199,90</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-nav-button next" id="new-releases-next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="py-10 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Destaques</h2>
+                    <a href="#" class="text-sm font-medium flex items-center hover:underline">
+                        Ver todos <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                    </a>
+                </div>
+                
+                <div class="carousel-container relative">
+                    <button class="carousel-nav-button prev" id="featured-prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <div class="product-carousel flex space-x-4 overflow-x-auto pb-4 px-6">
+                        <div class="product-card flex-shrink-0 w-36 sm:w-48 md:w-64 bg-white rounded-lg overflow-hidden shadow-sm">
+                            <div class="h-36 sm:h-48 md:h-64 bg-gray-100 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                                    <path d="M14.5 11c.83 0 1.5-.67 1.5-1.5S15.33 8 14.5 8 13 8.67 13 9.5s.67 1.5 1.5 1.5zm-5 2.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm9 2.5c-.55 0-1.05-.22-1.41-.59-.36-.36-.59-.86-.59-1.41 0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium">Bandana Clássica</h3>
+                                <p class="text-sm text-gray-500 mb-2">Mais vendido</p>
+                                <p class="font-bold">R$ 49,90</p>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card flex-shrink-0 w-36 sm:w-48 md:w-64 bg-white rounded-lg overflow-hidden shadow-sm">
+                            <div class="h-36 sm:h-48 md:h-64 bg-gray-100 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                                    <path d="M14.5 11c.83 0 1.5-.67 1.5-1.5S15.33 8 14.5 8 13 8.67 13 9.5s.67 1.5 1.5 1.5zm-5 2.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm9 2.5c-.55 0-1.05-.22-1.41-.59-.36-.36-.59-.86-.59-1.41 0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium">Guia Retrátil</h3>
+                                <p class="text-sm text-gray-500 mb-2">Premium</p>
+                                <p class="font-bold">R$ 89,90</p>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card flex-shrink-0 w-36 sm:w-48 md:w-64 bg-white rounded-lg overflow-hidden shadow-sm">
+                            <div class="h-36 sm:h-48 md:h-64 bg-gray-100 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                                    <path d="M14.5 11c.83 0 1.5-.67 1.5-1.5S15.33 8 14.5 8 13 8.67 13 9.5s.67 1.5 1.5 1.5zm-5 2.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm9 2.5c-.55 0-1.05-.22-1.41-.59-.36-.36-.59-.86-.59-1.41 0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium">Gravata Luxo</h3>
+                                <p class="text-sm text-gray-500 mb-2">Edição especial</p>
+                                <p class="font-bold">R$ 59,90</p>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card flex-shrink-0 w-36 sm:w-48 md:w-64 bg-white rounded-lg overflow-hidden shadow-sm">
+                            <div class="h-36 sm:h-48 md:h-64 bg-gray-100 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                                    <path d="M14.5 11c.83 0 1.5-.67 1.5-1.5S15.33 8 14.5 8 13 8.67 13 9.5s.67 1.5 1.5 1.5zm-5 2.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm9 2.5c-.55 0-1.05-.22-1.41-.59-.36-.36-.59-.86-.59-1.41 0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium">Brinquedo Tech</h3>
+                                <p class="text-sm text-gray-500 mb-2">Interativo</p>
+                                <p class="font-bold">R$ 79,90</p>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card flex-shrink-0 w-36 sm:w-48 md:w-64 bg-white rounded-lg overflow-hidden shadow-sm">
+                            <div class="h-36 sm:h-48 md:h-64 bg-gray-100 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                                    <path d="M14.5 11c.83 0 1.5-.67 1.5-1.5S15.33 8 14.5 8 13 8.67 13 9.5s.67 1.5 1.5 1.5zm-5 2.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm9 2.5c-.55 0-1.05-.22-1.41-.59-.36-.36-.59-.86-.59-1.41 0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium">Lacinho Festa</h3>
+                                <p class="text-sm text-gray-500 mb-2">Coleção festa</p>
+                                <p class="font-bold">R$ 29,90</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-nav-button next" id="featured-next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- DSClub Banner -->
+        <section class="py-12 bg-black text-white">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <h2 class="text-3xl font-bold mb-4">DSClub</h2>
+                        <p class="text-lg mb-6">Assine nosso clube e receba todo mês produtos exclusivos para seu pet. Benefícios especiais, descontos e muito mais!</p>
+                        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                            <a href="#" class="bg-white text-black px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition text-center">
+                                Conheça os planos
+                            </a>
+                            <a href="#" class="border border-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-black transition text-center">
+                                Saiba mais
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="w-64 h-64 bg-gray-800 rounded-full flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-crown text-4xl mb-4 text-yellow-400"></i>
+                                <h3 class="text-xl font-bold">DSClub</h3>
+                                <p class="text-sm mt-2">Exclusividade para seu pet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wholesale Section -->
+        <section class="py-10 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Atacado</h2>
+                    <a href="#" class="text-sm font-medium flex items-center hover:underline">
+                        Ver todos <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                    </a>
+                </div>
+                
+                <div class="carousel-container relative">
+                    <button class="carousel-nav-button prev" id="wholesale-prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <div class="product-carousel flex space-x-4 overflow-x-auto pb-4 px-6">
+                        <div class="product-card flex-shrink-0 w-36 sm:w-48 md:w-64 bg-white rounded-lg overflow-hidden shadow-sm">
+                            <div class="h-36 sm:h-48 md:h-64 bg-gray-100 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                                    <path d="M14.5 11c.83 0 1.5-.67 1.5-1.5S15.33 8 14.5 8 13 8.67 13 9.5s.67 1.5 1.5 1.5zm-5 2.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm9 2.5c-.55 0-1.05-.22-1.41-.59-.36-.36-.59-.86-.59-1.41 0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium">Kit 10 Bandanas</h3>
+                                <p class="text-sm text-gray-500 mb-2">Atacado</p>
+                                <p class="font-bold">R$ 399,90</p>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card flex-shrink-0 w-36 sm:w-48 md:w-64 bg-white rounded-lg overflow-hidden shadow-sm">
+                            <div class="h-36 sm:h-48 md:h-64 bg-gray-100 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                                    <path d="M14.5 11c.83 0 1.5-.67 1.5-1.5S15.33 8 14.5 8 13 8.67 13 9.5s.67 1.5 1.5 1.5zm-5 2.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm9 2.5c-.55 0-1.05-.22-1.41-.59-.36-.36-.59-.86-.59-1.41 0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium">Kit 10 Coleiras</h3>
+                                <p class="text-sm text-gray-500 mb-2">Atacado</p>
+                                <p class="font-bold">R$ 599,90</p>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card flex-shrink-0 w-36 sm:w-48 md:w-64 bg-white rounded-lg overflow-hidden shadow-sm">
+                            <div class="h-36 sm:h-48 md:h-64 bg-gray-100 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                                    <path d="M14.5 11c.83 0 1.5-.67 1.5-1.5S15.33 8 14.5 8 13 8.67 13 9.5s.67 1.5 1.5 1.5zm-5 2.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm9 2.5c-.55 0-1.05-.22-1.41-.59-.36-.36-.59-.86-.59-1.41 0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium">Kit 15 Lacinhos</h3>
+                                <p class="text-sm text-gray-500 mb-2">Atacado</p>
+                                <p class="font-bold">R$ 299,90</p>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card flex-shrink-0 w-36 sm:w-48 md:w-64 bg-white rounded-lg overflow-hidden shadow-sm">
+                            <div class="h-36 sm:h-48 md:h-64 bg-gray-100 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                                    <path d="M14.5 11c.83 0 1.5-.67 1.5-1.5S15.33 8 14.5 8 13 8.67 13 9.5s.67 1.5 1.5 1.5zm-5 2.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zm9 2.5c-.55 0-1.05-.22-1.41-.59-.36-.36-.59-.86-.59-1.41 0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium">Kit 8 Gravatas</h3>
+                                <p class="text-sm text-gray-500 mb-2">Atacado</p>
+                                <p class="font-bold">R$ 349,90</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-nav-button next" id="wholesale-next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Reviews -->
+        <section class="py-10 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-2xl font-bold mb-6">O que nossos clientes dizem</h2>
+                
+                <div class="carousel-container relative">
+                    <button class="carousel-nav-button prev" id="reviews-prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <div class="reviews-carousel flex space-x-4 overflow-x-auto pb-4 px-6">
+                        <div class="flex-shrink-0 w-72 md:w-80 bg-gray-50 p-6 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mr-3">
+                                    <i class="fas fa-user text-gray-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Ana Silva</h4>
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600">"Meu cachorro adora as bandanas da DoggyShine! A qualidade é incrível e ele fica super elegante. Já comprei várias e sempre recebo elogios quando saímos para passear."</p>
+                        </div>
+                        
+                        <div class="flex-shrink-0 w-72 md:w-80 bg-gray-50 p-6 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mr-3">
+                                    <i class="fas fa-user text-gray-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Carlos Mendes</h4>
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600">"A coleira smart é simplesmente incrível! Consigo monitorar onde meu pet está e ainda fica super estiloso. Vale cada centavo investido. Recomendo muito!"</p>
+                        </div>
+                        
+                        <div class="flex-shrink-0 w-72 md:w-80 bg-gray-50 p-6 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mr-3">
+                                    <i class="fas fa-user text-gray-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Juliana Costa</h4>
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600">"Assinei o DSClub há 3 meses e tem sido uma experiência maravilhosa. Todo mês recebo produtos exclusivos e minha cachorrinha adora. O atendimento é excelente!"</p>
+                        </div>
+                        
+                        <div class="flex-shrink-0 w-72 md:w-80 bg-gray-50 p-6 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mr-3">
+                                    <i class="fas fa-user text-gray-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Pedro Almeida</h4>
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600">"As gravatas da DoggyShine são perfeitas! Meu bulldog francês fica um verdadeiro cavalheiro. A qualidade do material é excelente e dura muito tempo."</p>
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-nav-button next" id="reviews-next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="py-12 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-xl mx-auto text-center">
+                    <h2 class="text-2xl font-bold mb-4">Fique por dentro das novidades</h2>
+                    <p class="text-gray-600 mb-6">Assine nossa newsletter e receba ofertas exclusivas, lançamentos e dicas para o seu pet.</p>
+                    <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0">
+                        <input type="email" placeholder="Seu melhor e-mail" class="flex-1 px-4 py-3 rounded-l-lg sm:rounded-r-none border border-gray-300 focus:outline-none focus:ring-1 focus:ring-black focus:border-black">
+                        <button class="bg-black text-white px-6 py-3 rounded-lg sm:rounded-l-none hover:bg-gray-800 transition">
+                            Assinar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">DoggyShine</h3>
+                    <p class="text-gray-400 mb-4">Acessórios premium que combinam estilo, conforto e tecnologia para o melhor amigo do homem.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Início</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Produtos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Sobre nós</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">DSClub</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Categorias</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Bandanas</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Coleiras</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Guias</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Gravatas</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Lacinhos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Box</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Contato</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">Av. Paulista, 1000, São Paulo - SP</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">(11) 99999-9999</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">contato@doggyshine.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
+                <p>© 2023 DoggyShine. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24"><defs><path id="_265464792__a" d="M4 21A9 9 0 0 0 4 3a1 1 0 1 0 0 2 7 7 0 1 1 0 14 1 1 0 0 0 0 2z"></path></defs><use fill="currentColor" fill-rule="nonzero" transform="matrix(-1 0 0 1 16 0)" xlink:href="#_265464792__a"></use></svg>
+
+    <script>
+        // Menu functionality
+        const menuButton = document.getElementById('menu-button');
+        const closeMenuButton = document.getElementById('close-menu');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        
+        menuButton.addEventListener('click', () => {
+            sidebar.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenuButton.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Cart functionality
+        const cartButton = document.getElementById('cart-button');
+        const closeCartButton = document.getElementById('close-cart');
+        const cartSidebar = document.getElementById('cart-sidebar');
+        
+        cartButton.addEventListener('click', () => {
+            cartSidebar.classList.remove('translate-x-full');
+            overlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeCartButton.addEventListener('click', () => {
+            cartSidebar.classList.add('translate-x-full');
+            overlay.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close sidebars when clicking overlay
+        overlay.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+            cartSidebar.classList.add('translate-x-full');
+            overlay.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Carousel navigation functionality
+        function setupCarousel(prevButton, nextButton, carousel) {
+            const scrollAmount = carousel.clientWidth * 0.75;
+            
+            prevButton.addEventListener('click', () => {
+                carousel.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+            
+            nextButton.addEventListener('click', () => {
+                carousel.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+        }
+        
+        // Setup all carousels
+        document.addEventListener('DOMContentLoaded', () => {
+            // Categories carousel
+            setupCarousel(
+                document.getElementById('category-prev'),
+                document.getElementById('category-next'),
+                document.querySelector('.category-carousel')
+            );
+            
+            // New releases carousel
+            setupCarousel(
+                document.getElementById('new-releases-prev'),
+                document.getElementById('new-releases-next'),
+                document.querySelectorAll('.product-carousel')[0]
+            );
+            
+            // Featured products carousel
+            setupCarousel(
+                document.getElementById('featured-prev'),
+                document.getElementById('featured-next'),
+                document.querySelectorAll('.product-carousel')[1]
+            );
+            
+            // Wholesale carousel
+            setupCarousel(
+                document.getElementById('wholesale-prev'),
+                document.getElementById('wholesale-next'),
+                document.querySelectorAll('.product-carousel')[2]
+            );
+            
+            // Reviews carousel
+            setupCarousel(
+                document.getElementById('reviews-prev'),
+                document.getElementById('reviews-next'),
+                document.querySelector('.reviews-carousel')
+            );
+        });
+        
+        // Add touch swiping for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        function handleSwipe(carousel) {
+            if (touchStartX - touchEndX > 50) {
+                // Swipe left
+                carousel.scrollBy({
+                    left: carousel.clientWidth * 0.5,
+                    behavior: 'smooth'
+                });
+            } else if (touchEndX - touchStartX > 50) {
+                // Swipe right
+                carousel.scrollBy({
+                    left: -carousel.clientWidth * 0.5,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        const allCarousels = [
+            document.querySelector('.category-carousel'),
+            ...document.querySelectorAll('.product-carousel'),
+            document.querySelector('.reviews-carousel')
+        ];
+        
+        allCarousels.forEach(carousel => {
+            carousel.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            carousel.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe(carousel);
+            });
+        });
+    </script>
+
+</body>
+</html>

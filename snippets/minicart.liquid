@@ -1,0 +1,18 @@
+<div>
+  <h3>Seu carrinho</h3>
+  {% if cart.item_count > 0 %}
+    <ul>
+      {% for item in cart.items %}
+        <li>{{ item.product.title }} x {{ item.quantity }}<br><small>{{ item.line_price | money }}</small></li>
+      {% endfor %}
+    </ul>
+    <p><strong>Total:</strong> {{ cart.total_price | money }}</p>
+    <a href="/cart" style="display:inline-block; margin-top:8px;">Ir para o carrinho</a>
+    <form action="/cart" method="post" style="display:inline-block; margin-top:8px;">
+      <button type="submit" name="checkout">Finalizar compra</button>
+    </form>
+  {% else %}
+    <p>Seu carrinho está vazio.</p>
+  {% endif %}
+  <button onclick="document.getElementById('minicart').style.display='none'" style="margin-top:8px;">Fechar</button>
+</div> 

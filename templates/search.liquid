@@ -1,0 +1,16 @@
+<main>
+  <h2>Buscar</h2>
+  <form action="/search" method="get">
+    <input type="search" name="q" value="{{ search.terms }}" placeholder="Buscar produtos...">
+    <button type="submit">Buscar</button>
+  </form>
+  {% if search.results_count > 0 %}
+    <ul>
+      {% for item in search.results %}
+        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Nenhum resultado encontrado.</p>
+  {% endif %}
+</main> 

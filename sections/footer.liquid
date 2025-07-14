@@ -1,0 +1,13 @@
+<footer>
+  <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}</p>
+  <div>
+    <strong>Formas de pagamento:</strong>
+    <ul style="list-style:none; padding:0; display:flex; gap:8px;">
+      {%- for type in shop.enabled_payment_types -%}
+        <li>
+          <span class="payment-icon payment-icon-{{ type }}" title="{{ type | capitalize }}"></span>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</footer> 

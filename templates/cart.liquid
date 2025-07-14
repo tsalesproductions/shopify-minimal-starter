@@ -1,0 +1,16 @@
+<main>
+  <h2>Carrinho</h2>
+  {% if cart.item_count > 0 %}
+    <ul>
+      {% for item in cart.items %}
+        <li>{{ item.product.title }} x {{ item.quantity }}</li>
+      {% endfor %}
+    </ul>
+    <p>Total: {{ cart.total_price | money }}</p>
+    <form action="/cart" method="post">
+      <button type="submit" name="checkout">Finalizar compra</button>
+    </form>
+  {% else %}
+    <p>Seu carrinho está vazio.</p>
+  {% endif %}
+</main> 

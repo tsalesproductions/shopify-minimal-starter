@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page_title }}</title>
+    {% render 'preloads' %}
+    {% render 'styles' %}
+    {{ content_for_header }}
+  </head>
+  <body>
+    {% section 'header' %}
+    {{ content_for_layout }}
+    {% section 'footer' %}
+
+    <div id="minicart" style="display:none; position:fixed; top:60px; right:20px; background:#fff; border:1px solid #ccc; padding:16px; z-index:1000; min-width:250px;">
+    {% render 'minicart' %}
+  </div>
+  <script src="{{ 'minicart.js' | asset_url }}" defer></script>
+  {% render 'scripts' %}
+  </body>
+</html> 

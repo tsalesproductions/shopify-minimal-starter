@@ -1,0 +1,817 @@
+<html lang="pt-BR"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coleira Smart Tech - DoggyShine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f9f9f9;
+        }
+        
+        .product-carousel .carousel-item {
+            transition: transform 0.5s ease;
+        }
+        
+        .custom-option:checked + label {
+            border-color: black;
+            background-color: #f0f0f0;
+        }
+        
+        .star-rating input {
+            display: none;
+        }
+        
+        .star-rating label {
+            cursor: pointer;
+            width: 25px;
+            height: 25px;
+        }
+        
+        .star-rating label:hover,
+        .star-rating label:hover ~ label,
+        .star-rating input:checked ~ label {
+            color: #FFD700;
+        }
+        
+        .carousel {
+            scroll-behavior: smooth;
+        }
+        
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .product-image-thumbnail:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.absolute{position:absolute}.relative{position:relative}.-right-2{right:-0.5rem}.-top-2{top:-0.5rem}.left-0{left:0px}.right-0{right:0px}.right-2{right:0.5rem}.top-1\/2{top:50%}.top-2{top:0.5rem}.mx-2{margin-left:0.5rem;margin-right:0.5rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.ml-1{margin-left:0.25rem}.ml-2{margin-left:0.5rem}.mr-2{margin-right:0.5rem}.mr-3{margin-right:0.75rem}.mr-4{margin-right:1rem}.mt-1{margin-top:0.25rem}.mt-12{margin-top:3rem}.mt-16{margin-top:4rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-2{height:0.5rem}.h-20{height:5rem}.h-24{height:6rem}.h-48{height:12rem}.h-5{height:1.25rem}.h-8{height:2rem}.h-80{height:20rem}.h-full{height:100%}.max-h-full{max-height:100%}.w-12{width:3rem}.w-20{width:5rem}.w-24{width:6rem}.w-5{width:1.25rem}.w-8{width:2rem}.w-full{width:100%}.max-w-full{max-width:100%}.flex-shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-6 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.5rem * var(--tw-space-x-reverse));margin-left:calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.rounded{border-radius:0.25rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-l{border-top-left-radius:0.25rem;border-bottom-left-radius:0.25rem}.rounded-r{border-top-right-radius:0.25rem;border-bottom-right-radius:0.25rem}.border{border-width:1px}.border-x{border-left-width:1px;border-right-width:1px}.border-b{border-bottom-width:1px}.border-b-2{border-bottom-width:2px}.border-t{border-top-width:1px}.border-black{--tw-border-opacity:1;border-color:rgb(0 0 0 / var(--tw-border-opacity, 1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1))}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity, 1))}.border-gray-800{--tw-border-opacity:1;border-color:rgb(31 41 55 / var(--tw-border-opacity, 1))}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.bg-gray-400{--tw-bg-opacity:1;background-color:rgb(156 163 175 / var(--tw-bg-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-green-600{--tw-bg-opacity:1;background-color:rgb(22 163 74 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-yellow-400{--tw-bg-opacity:1;background-color:rgb(250 204 21 / var(--tw-bg-opacity, 1))}.object-contain{object-fit:contain}.object-cover{object-fit:cover}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-4{padding-bottom:1rem}.pb-6{padding-bottom:1.5rem}.pt-4{padding-top:1rem}.pt-6{padding-top:1.5rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.tracking-wider{letter-spacing:0.05em}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.text-green-600{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-yellow-400{--tw-text-opacity:1;color:rgb(250 204 21 / var(--tw-text-opacity, 1))}.line-through{-webkit-text-decoration-line:line-through;text-decoration-line:line-through}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:border-black:hover{--tw-border-opacity:1;border-color:rgb(0 0 0 / var(--tw-border-opacity, 1))}.hover\:bg-gray-100:hover{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.hover\:bg-gray-200:hover{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.hover\:bg-gray-50:hover{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.hover\:bg-gray-800:hover{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity, 1))}.hover\:text-black:hover{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.hover\:text-gray-300:hover{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.hover\:text-gray-800:hover{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-black:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(0 0 0 / var(--tw-ring-opacity, 1))}@media (min-width: 640px){.sm\:flex-row{flex-direction:row}}@media (min-width: 768px){.md\:mb-0{margin-bottom:0px}.md\:mt-0{margin-top:0px}.md\:block{display:block}.md\:flex{display:flex}.md\:hidden{display:none}.md\:h-96{height:24rem}.md\:w-1\/2{width:50%}.md\:w-1\/3{width:33.333333%}.md\:w-1\/4{width:25%}.md\:w-2\/3{width:66.666667%}.md\:w-3\/4{width:75%}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:border-l{border-left-width:1px}.md\:border-t-0{border-top-width:0px}.md\:px-8{padding-left:2rem;padding-right:2rem}.md\:pl-4{padding-left:1rem}.md\:pt-0{padding-top:0px}}</style></head>
+<body class="text-gray-800">
+    <!-- Header -->
+    <header class="bg-black text-white py-4 px-4 md:px-8">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-bold tracking-wider">DOGGY<span class="text-gray-300">SHINE</span></h1>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-gray-300 transition">Início</a>
+                <a href="#" class="hover:text-gray-300 transition">Produtos</a>
+                <a href="#" class="hover:text-gray-300 transition">Sobre</a>
+                <a href="#" class="hover:text-gray-300 transition">Contato</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="hover:text-gray-300"><i class="fas fa-search"></i></a>
+                <a href="#" class="hover:text-gray-300"><i class="fas fa-user"></i></a>
+                <a href="#" class="hover:text-gray-300 relative">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="absolute -top-2 -right-2 bg-white text-black rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">2</span>
+                </a>
+                <button class="md:hidden"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="container mx-auto py-3 px-4 md:px-8 text-sm">
+        <a href="#" class="text-gray-500 hover:text-black">Início</a> &gt; 
+        <a href="#" class="text-gray-500 hover:text-black">Acessórios</a> &gt; 
+        <span class="font-medium">Coleira Smart Tech</span>
+    </div>
+
+    <!-- Product Section -->
+    <main class="container mx-auto px-4 md:px-8 py-6">
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- Product Images -->
+            <div class="md:w-1/2">
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div id="mainImage" class="h-80 md:h-96 flex items-center justify-center p-4">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='white'/%3E%3Cpath d='M200 70 C 120 70, 70 120, 70 200 C 70 280, 120 330, 200 330 C 280 330, 330 280, 330 200 C 330 120, 280 70, 200 70 Z' fill='%23f0f0f0' stroke='black' stroke-width='8'/%3E%3Ccircle cx='200' cy='200' r='100' fill='white' stroke='black' stroke-width='4'/%3E%3Cpath d='M150 150 L 250 150 L 250 250 L 150 250 Z' fill='none' stroke='black' stroke-width='6'/%3E%3Cpath d='M130 200 L 270 200' stroke='black' stroke-width='6'/%3E%3Cpath d='M200 130 L 200 270' stroke='black' stroke-width='6'/%3E%3Ctext x='200' y='290' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='16' fill='black'%3EDOGGYSHINE%3C/text%3E%3C/svg%3E" alt="Coleira Smart Tech" class="max-h-full max-w-full object-contain" id="featured-image">
+                    </div>
+                    <div class="flex overflow-x-auto p-4 gap-2">
+                        <div class="product-image-thumbnail w-20 h-20 flex-shrink-0 border border-gray-200 rounded cursor-pointer hover:border-black" onclick="changeImage(0)">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='white'/%3E%3Cpath d='M200 70 C 120 70, 70 120, 70 200 C 70 280, 120 330, 200 330 C 280 330, 330 280, 330 200 C 330 120, 280 70, 200 70 Z' fill='%23f0f0f0' stroke='black' stroke-width='8'/%3E%3Ccircle cx='200' cy='200' r='100' fill='white' stroke='black' stroke-width='4'/%3E%3Cpath d='M150 150 L 250 150 L 250 250 L 150 250 Z' fill='none' stroke='black' stroke-width='6'/%3E%3Cpath d='M130 200 L 270 200' stroke='black' stroke-width='6'/%3E%3Cpath d='M200 130 L 200 270' stroke='black' stroke-width='6'/%3E%3Ctext x='200' y='290' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='16' fill='black'%3EDOGGYSHINE%3C/text%3E%3C/svg%3E" alt="Coleira Smart Tech - Vista frontal" class="w-full h-full object-cover">
+                        </div>
+                        <div class="product-image-thumbnail w-20 h-20 flex-shrink-0 border border-gray-200 rounded cursor-pointer hover:border-black" onclick="changeImage(1)">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='white'/%3E%3Cpath d='M200 70 C 120 70, 70 120, 70 200 C 70 280, 120 330, 200 330 C 280 330, 330 280, 330 200 C 330 120, 280 70, 200 70 Z' fill='%23f0f0f0' stroke='black' stroke-width='8'/%3E%3Ccircle cx='200' cy='200' r='100' fill='white' stroke='black' stroke-width='4'/%3E%3Cpath d='M150 170 L 250 170 L 250 230 L 150 230 Z' fill='none' stroke='black' stroke-width='6'/%3E%3Ctext x='200' y='290' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='16' fill='black'%3EDOGGYSHINE%3C/text%3E%3C/svg%3E" alt="Coleira Smart Tech - Vista lateral" class="w-full h-full object-cover">
+                        </div>
+                        <div class="product-image-thumbnail w-20 h-20 flex-shrink-0 border border-gray-200 rounded cursor-pointer hover:border-black" onclick="changeImage(2)">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='white'/%3E%3Cpath d='M200 70 C 120 70, 70 120, 70 200 C 70 280, 120 330, 200 330 C 280 330, 330 280, 330 200 C 330 120, 280 70, 200 70 Z' fill='%23f0f0f0' stroke='black' stroke-width='8'/%3E%3Ccircle cx='200' cy='200' r='100' fill='white' stroke='black' stroke-width='4'/%3E%3Ctext x='200' y='200' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='24' fill='black'%3EMAX%3C/text%3E%3Ctext x='200' y='290' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='16' fill='black'%3EDOGGYSHINE%3C/text%3E%3C/svg%3E" alt="Coleira Smart Tech - Com nome bordado" class="w-full h-full object-cover">
+                        </div>
+                        <div class="product-image-thumbnail w-20 h-20 flex-shrink-0 border border-gray-200 rounded cursor-pointer hover:border-black" onclick="changeImage(3)">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='white'/%3E%3Cpath d='M200 70 C 120 70, 70 120, 70 200 C 70 280, 120 330, 200 330 C 280 330, 330 280, 330 200 C 330 120, 280 70, 200 70 Z' fill='%23f0f0f0' stroke='black' stroke-width='8'/%3E%3Ccircle cx='200' cy='200' r='100' fill='white' stroke='black' stroke-width='4'/%3E%3Cpath d='M170 170 C 170 150, 230 150, 230 170 L 230 230 C 230 250, 170 250, 170 230 Z' fill='none' stroke='black' stroke-width='6'/%3E%3Ccircle cx='200' cy='150' r='10' fill='black'/%3E%3Ctext x='200' y='290' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='16' fill='black'%3EDOGGYSHINE%3C/text%3E%3C/svg%3E" alt="Coleira Smart Tech - Com berloque" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="md:w-1/2">
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <h1 class="text-3xl font-bold mb-2">Coleira Smart Tech</h1>
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="ml-2 text-gray-600">(42 avaliações)</span>
+                    </div>
+                    <div class="mb-6">
+                        <span class="text-3xl font-bold">R$ 129,90</span>
+                        <span class="text-gray-500 line-through ml-2">R$ 159,90</span>
+                        <span class="bg-black text-white text-xs px-2 py-1 ml-2 rounded">-19%</span>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        A Coleira Smart Tech da DoggyShine combina tecnologia e estilo para o seu pet. Feita com materiais premium, confortável e durável, com design moderno e elegante.
+                    </p>
+
+                    <!-- Personalization Options -->
+                    <div class="mb-6">
+                        <h3 class="font-semibold text-lg mb-3">Personalizações</h3>
+                        
+                        <!-- Nome Bordado -->
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">Nome para Bordado</label>
+                            <input type="text" placeholder="Ex: MAX (até 10 caracteres)" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black">
+                        </div>
+                        
+                        <!-- Tamanho -->
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">Tamanho</label>
+                            <div class="flex flex-wrap gap-2">
+                                <div class="custom-radio">
+                                    <input type="radio" name="size" id="size-p" class="custom-option hidden">
+                                    <label for="size-p" class="px-4 py-2 border border-gray-300 rounded cursor-pointer hover:bg-gray-50">P</label>
+                                </div>
+                                <div class="custom-radio">
+                                    <input type="radio" name="size" id="size-m" class="custom-option hidden" checked="">
+                                    <label for="size-m" class="px-4 py-2 border border-gray-300 rounded cursor-pointer hover:bg-gray-50">M</label>
+                                </div>
+                                <div class="custom-radio">
+                                    <input type="radio" name="size" id="size-g" class="custom-option hidden">
+                                    <label for="size-g" class="px-4 py-2 border border-gray-300 rounded cursor-pointer hover:bg-gray-50">G</label>
+                                </div>
+                                <div class="custom-radio">
+                                    <input type="radio" name="size" id="size-gg" class="custom-option hidden">
+                                    <label for="size-gg" class="px-4 py-2 border border-gray-300 rounded cursor-pointer hover:bg-gray-50">GG</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Cor -->
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">Cor</label>
+                            <div class="flex gap-2">
+                                <div class="custom-radio">
+                                    <input type="radio" name="color" id="color-black" class="custom-option hidden" checked="">
+                                    <label for="color-black" class="w-8 h-8 rounded-full bg-black border border-gray-300 cursor-pointer flex items-center justify-center">
+                                        <span class="text-white"><i class="fas fa-check"></i></span>
+                                    </label>
+                                </div>
+                                <div class="custom-radio">
+                                    <input type="radio" name="color" id="color-white" class="custom-option hidden">
+                                    <label for="color-white" class="w-8 h-8 rounded-full bg-white border border-gray-300 cursor-pointer"></label>
+                                </div>
+                                <div class="custom-radio">
+                                    <input type="radio" name="color" id="color-gray" class="custom-option hidden">
+                                    <label for="color-gray" class="w-8 h-8 rounded-full bg-gray-400 border border-gray-300 cursor-pointer"></label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Adicionais -->
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">Adicionais</label>
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="add-bag" class="mr-2">
+                                    <label for="add-bag" class="text-sm">Saquinho personalizado (+R$ 19,90)</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="add-perfume" class="mr-2">
+                                    <label for="add-perfume" class="text-sm">Perfume pet premium (+R$ 29,90)</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="add-extensor" class="mr-2">
+                                    <label for="add-extensor" class="text-sm">Extensor de coleira (+R$ 24,90)</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="add-berloque" class="mr-2">
+                                    <label for="add-berloque" class="text-sm">Berloque personalizado (+R$ 15,90)</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quantity and Add to Cart -->
+                    <div class="flex flex-col sm:flex-row gap-4 mb-6">
+                        <div class="flex border border-gray-300 rounded">
+                            <button class="px-3 py-2 bg-gray-100 hover:bg-gray-200" onclick="decrementQuantity()">-</button>
+                            <input type="text" id="quantity" value="1" class="w-12 text-center border-x border-gray-300">
+                            <button class="px-3 py-2 bg-gray-100 hover:bg-gray-200" onclick="incrementQuantity()">+</button>
+                        </div>
+                        <button class="flex-grow bg-black text-white py-3 px-6 rounded hover:bg-gray-800 transition flex items-center justify-center">
+                            <i class="fas fa-shopping-bag mr-2"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                    
+                    <!-- Additional Info -->
+                    <div class="border-t border-gray-200 pt-4 space-y-3 text-sm">
+                        <div class="flex items-center">
+                            <i class="fas fa-truck text-gray-600 mr-3 w-5"></i>
+                            <span>Frete grátis para compras acima de R$ 199</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-shield-alt text-gray-600 mr-3 w-5"></i>
+                            <span>Garantia de 30 dias</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-exchange-alt text-gray-600 mr-3 w-5"></i>
+                            <span>Troca fácil em até 7 dias</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Description Tabs -->
+        <div class="mt-12">
+            <div class="border-b border-gray-200">
+                <div class="flex overflow-x-auto">
+                    <button class="tab-button px-6 py-3 font-medium text-gray-800 border-b-2 border-black" data-tab="description">Descrição</button>
+                    <button class="tab-button px-6 py-3 font-medium text-gray-500 hover:text-gray-800" data-tab="specifications">Especificações</button>
+                    <button class="tab-button px-6 py-3 font-medium text-gray-500 hover:text-gray-800" data-tab="reviews">Avaliações</button>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-sm p-6 mt-4">
+                <!-- Description Tab -->
+                <div id="description-tab" class="tab-content">
+                    <h3 class="text-xl font-bold mb-4">Sobre a Coleira Smart Tech</h3>
+                    <p class="mb-4">
+                        A Coleira Smart Tech da DoggyShine é o acessório perfeito para o seu pet, combinando tecnologia, conforto e estilo em um único produto. Desenvolvida com os mais altos padrões de qualidade, esta coleira oferece durabilidade excepcional e um design moderno que vai destacar o seu amigo de quatro patas.
+                    </p>
+                    <p class="mb-4">
+                        Fabricada com materiais premium e hipoalergênicos, a Coleira Smart Tech proporciona máximo conforto para o seu pet, evitando irritações na pele mesmo durante uso prolongado. O sistema de ajuste permite uma adaptação perfeita ao pescoço do animal, garantindo segurança sem comprometer o conforto.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                        <div class="flex items-start">
+                            <div class="bg-gray-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-medal text-black text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Materiais Premium</h4>
+                                <p class="text-gray-600 text-sm">Confeccionada com materiais de alta qualidade que garantem durabilidade e conforto.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-gray-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-tint-slash text-black text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Resistente à Água</h4>
+                                <p class="text-gray-600 text-sm">Perfeita para pets ativos, resiste à água e é fácil de limpar.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-gray-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-paw text-black text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Conforto Garantido</h4>
+                                <p class="text-gray-600 text-sm">Design ergonômico que se adapta perfeitamente ao pescoço do seu pet.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-gray-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-palette text-black text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Personalização</h4>
+                                <p class="text-gray-600 text-sm">Opções de personalização para tornar a coleira única como o seu pet.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Specifications Tab -->
+                <div id="specifications-tab" class="tab-content hidden">
+                    <h3 class="text-xl font-bold mb-4">Especificações Técnicas</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <tbody>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-3 font-medium">Material</td>
+                                    <td class="py-3">Nylon de alta resistência com detalhes em couro sintético</td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-3 font-medium">Tamanhos disponíveis</td>
+                                    <td class="py-3">P (25-30cm), M (30-40cm), G (40-50cm), GG (50-60cm)</td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-3 font-medium">Largura da fita</td>
+                                    <td class="py-3">2cm (P, M), 2,5cm (G, GG)</td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-3 font-medium">Peso</td>
+                                    <td class="py-3">80g (P), 100g (M), 120g (G), 140g (GG)</td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-3 font-medium">Cores disponíveis</td>
+                                    <td class="py-3">Preto, Branco, Cinza</td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-3 font-medium">Resistência à tração</td>
+                                    <td class="py-3">Até 50kg</td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-3 font-medium">Fechamento</td>
+                                    <td class="py-3">Fivela de segurança com trava dupla</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 font-medium">Garantia</td>
+                                    <td class="py-3">30 dias contra defeitos de fabricação</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Reviews Tab -->
+                <div id="reviews-tab" class="tab-content hidden">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/3">
+                            <h3 class="text-xl font-bold mb-4">Avaliações dos Clientes</h3>
+                            <div class="mb-4">
+                                <div class="flex items-center mb-2">
+                                    <div class="text-3xl font-bold mr-2">4.8</div>
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="text-sm text-gray-500">Baseado em 42 avaliações</div>
+                            </div>
+                            
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <span class="text-sm w-8">5 ★</span>
+                                    <div class="flex-grow h-2 bg-gray-200 rounded-full mx-2">
+                                        <div class="h-2 bg-yellow-400 rounded-full" style="width: 80%"></div>
+                                    </div>
+                                    <span class="text-sm w-8">80%</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-sm w-8">4 ★</span>
+                                    <div class="flex-grow h-2 bg-gray-200 rounded-full mx-2">
+                                        <div class="h-2 bg-yellow-400 rounded-full" style="width: 15%"></div>
+                                    </div>
+                                    <span class="text-sm w-8">15%</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-sm w-8">3 ★</span>
+                                    <div class="flex-grow h-2 bg-gray-200 rounded-full mx-2">
+                                        <div class="h-2 bg-yellow-400 rounded-full" style="width: 5%"></div>
+                                    </div>
+                                    <span class="text-sm w-8">5%</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-sm w-8">2 ★</span>
+                                    <div class="flex-grow h-2 bg-gray-200 rounded-full mx-2">
+                                        <div class="h-2 bg-yellow-400 rounded-full" style="width: 0%"></div>
+                                    </div>
+                                    <span class="text-sm w-8">0%</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-sm w-8">1 ★</span>
+                                    <div class="flex-grow h-2 bg-gray-200 rounded-full mx-2">
+                                        <div class="h-2 bg-yellow-400 rounded-full" style="width: 0%"></div>
+                                    </div>
+                                    <span class="text-sm w-8">0%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6">
+                                <button class="w-full bg-black text-white py-2 px-4 rounded hover:bg-gray-800 transition">Escrever Avaliação</button>
+                            </div>
+                        </div>
+                        
+                        <div class="md:w-2/3">
+                            <div class="mb-6">
+                                <h4 class="font-semibold mb-4">Deixe sua avaliação</h4>
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium mb-2">Sua nota</label>
+                                    <div class="star-rating flex text-2xl text-gray-300">
+                                        <input type="radio" id="star5" name="rating" value="5">
+                                        <label for="star5" class="fas fa-star"></label>
+                                        <input type="radio" id="star4" name="rating" value="4">
+                                        <label for="star4" class="fas fa-star"></label>
+                                        <input type="radio" id="star3" name="rating" value="3">
+                                        <label for="star3" class="fas fa-star"></label>
+                                        <input type="radio" id="star2" name="rating" value="2">
+                                        <label for="star2" class="fas fa-star"></label>
+                                        <input type="radio" id="star1" name="rating" value="1">
+                                        <label for="star1" class="fas fa-star"></label>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="block text-sm font-medium mb-2">Seu comentário</label>
+                                    <textarea rows="4" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black" placeholder="Compartilhe sua experiência com o produto..."></textarea>
+                                </div>
+                                <div class="flex justify-end">
+                                    <button class="bg-black text-white py-2 px-4 rounded hover:bg-gray-800 transition">Enviar Avaliação</button>
+                                </div>
+                            </div>
+                            
+                            <div class="border-t border-gray-200 pt-6">
+                                <h4 class="font-semibold mb-4">Comentários dos clientes</h4>
+                                
+                                <!-- Review 1 -->
+                                <div class="mb-6 pb-6 border-b border-gray-200">
+                                    <div class="flex justify-between mb-2">
+                                        <div class="font-medium">Ana Silva</div>
+                                        <div class="text-gray-500 text-sm">2 semanas atrás</div>
+                                    </div>
+                                    <div class="flex text-yellow-400 mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="text-gray-700">
+                                        Comprei para meu Shih-tzu e adorei! O material é de ótima qualidade, super macio e confortável. A personalização com o nome ficou linda. Recomendo muito!
+                                    </p>
+                                </div>
+                                
+                                <!-- Review 2 -->
+                                <div class="mb-6 pb-6 border-b border-gray-200">
+                                    <div class="flex justify-between mb-2">
+                                        <div class="font-medium">Carlos Mendes</div>
+                                        <div class="text-gray-500 text-sm">1 mês atrás</div>
+                                    </div>
+                                    <div class="flex text-yellow-400 mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="text-gray-700">
+                                        Excelente produto! Meu labrador é bastante agitado e a coleira se mantém firme mesmo durante as brincadeiras mais intensas. O bordado com o nome dele ficou perfeito.
+                                    </p>
+                                </div>
+                                
+                                <!-- Review 3 -->
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <div class="font-medium">Patrícia Oliveira</div>
+                                        <div class="text-gray-500 text-sm">2 meses atrás</div>
+                                    </div>
+                                    <div class="flex text-yellow-400 mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <p class="text-gray-700">
+                                        Gostei muito da coleira, o design é moderno e elegante. Só achei que poderia ter mais opções de cores. De qualquer forma, a qualidade é excelente e minha cachorrinha parece confortável usando.
+                                    </p>
+                                </div>
+                                
+                                <div class="mt-6 text-center">
+                                    <button class="text-black border border-black rounded px-4 py-2 hover:bg-gray-100 transition">Ver mais avaliações</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buy Together Carousel -->
+        <div class="mt-12">
+            <h2 class="text-2xl font-bold mb-6">Compre Junto</h2>
+            <div class="relative">
+                <div id="buy-together-carousel" class="carousel flex overflow-x-auto gap-4 pb-4">
+                    <!-- Bundle 1 -->
+                    <div class="flex-shrink-0 w-full md:w-2/3 bg-white rounded-lg shadow-sm p-4">
+                        <div class="flex flex-col md:flex-row items-center gap-4">
+                            <div class="flex items-center gap-4 md:w-3/4">
+                                <!-- Main Product -->
+                                <div class="text-center">
+                                    <div class="w-24 h-24 mx-auto bg-gray-100 rounded-lg flex items-center justify-center mb-2">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='white'/%3E%3Cpath d='M200 70 C 120 70, 70 120, 70 200 C 70 280, 120 330, 200 330 C 280 330, 330 280, 330 200 C 330 120, 280 70, 200 70 Z' fill='%23f0f0f0' stroke='black' stroke-width='8'/%3E%3Ccircle cx='200' cy='200' r='100' fill='white' stroke='black' stroke-width='4'/%3E%3Cpath d='M150 150 L 250 150 L 250 250 L 150 250 Z' fill='none' stroke='black' stroke-width='6'/%3E%3Cpath d='M130 200 L 270 200' stroke='black' stroke-width='6'/%3E%3Cpath d='M200 130 L 200 270' stroke='black' stroke-width='6'/%3E%3Ctext x='200' y='290' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='16' fill='black'%3EDOGGYSHINE%3C/text%3E%3C/svg%3E" alt="Coleira Smart Tech" class="max-h-full max-w-full object-contain">
+                                    </div>
+                                    <div class="text-xs">Coleira Smart Tech</div>
+                                    <div class="font-semibold text-sm">R$ 129,90</div>
+                                </div>
+                                
+                                <div class="text-2xl">+</div>
+                                
+                                <!-- Additional Product 1 -->
+                                <div class="text-center">
+                                    <div class="w-24 h-24 mx-auto bg-gray-100 rounded-lg flex items-center justify-center mb-2">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='white'/%3E%3Cpath d='M150 100 L 250 100 L 300 200 L 250 300 L 150 300 L 100 200 Z' fill='%23f0f0f0' stroke='black' stroke-width='8'/%3E%3Ccircle cx='200' cy='200' r='50' fill='white' stroke='black' stroke-width='4'/%3E%3Ctext x='200' y='330' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='16' fill='black'%3EDOGGYSHINE%3C/text%3E%3C/svg%3E" alt="Guia Retrátil" class="max-h-full max-w-full object-contain">
+                                    </div>
+                                    <div class="text-xs">Guia Retrátil</div>
+                                    <div class="font-semibold text-sm">R$ 89,90</div>
+                                </div>
+                                
+                                <div class="text-2xl">+</div>
+                                
+                                <!-- Additional Product 2 -->
+                                <div class="text-center">
+                                    <div class="w-24 h-24 mx-auto bg-gray-100 rounded-lg flex items-center justify-center mb-2">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='white'/%3E%3Cpath d='M200 80 C 130 80, 80 130, 80 200 C 80 270, 130 320, 200 320 C 270 320, 320 270, 320 200 C 320 130, 270 80, 200 80 Z' fill='%23f0f0f0' stroke='black' stroke-width='8'/%3E%3Cpath d='M170 150 C 170 140, 230 140, 230 150 L 230 250 C 230 260, 170 260, 170 250 Z' fill='white' stroke='black' stroke-width='4'/%3E%3Ctext x='200' y='330' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='16' fill='black'%3EDOGGYSHINE%3C/text%3E%3C/svg%3E" alt="Perfume Pet" class="max-h-full max-w-full object-contain">
+                                    </div>
+                                    <div class="text-xs">Perfume Pet</div>
+                                    <div class="font-semibold text-sm">R$ 39,90</div>
+                                </div>
+                            </div>
+                            
+                            <div class="md:w-1/4 flex flex-col items-center justify-center border-t md:border-t-0 md:border-l border-gray-200 pt-4 md:pt-0 md:pl-4 mt-4 md:mt-0">
+                                <div class="mb-2 text-center">
+                                    <div class="text-gray-500 line-through text-sm">R$ 259,70</div>
+                                    <div class="text-xl font-bold">R$ 219,90</div>
+                                    <div class="text-green-600 text-sm">Economize R$ 39,80</div>
+                                </div>
+                                <button class="w-full bg-black text-white py-2 px-4 rounded hover:bg-gray-800 transition text-sm">Adicionar Conjunto</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bundle 2 -->
+                    <div class="flex-shrink-0 w-full md:w-2/3 bg-white rounded-lg shadow-sm p-4">
+                        <div class="flex flex-col md:flex-row items-center gap-4">
+                            <div class="flex items-center gap-4 md:w-3/4">
+                                <!-- Main Product -->
+                                <div class="text-center">
+                                    <div class="w-24 h-24 mx-auto bg-gray-100 rounded-lg flex items-center justify-center mb-2">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='white'/%3E%3Cpath d='M200 70 C 120 70, 70 120, 70 200 C 70 280, 120 330, 200 330 C 280 330, 330 280, 330 200 C 330 120, 280 70, 200 70 Z' fill='%23f0f0f0' stroke='black' stroke-width='8'/%3E%3Ccircle cx='200' cy='200' r='100' fill='white' stroke='black' stroke-width='4'/%3E%3Cpath d='M150 150 L 250 150 L 250 250 L 150 250 Z' fill='none' stroke='black' stroke-width='6'/%3E%3Cpath d='M130 200 L 270 200' stroke='black' stroke-width='6'/%3E%3Cpath d='M200 130 L 200 270' stroke='black' stroke-width='6'/%3E%3Ctext x='200' y='290' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='16' fill='black'%3EDOGGYSHINE%3C/text%3E%3C/svg%3E" alt="Coleira Smart Tech" class="max-h-full max-w-full object-contain">
+                                    </div>
+                                    <div class="text-xs">Coleira Smart Tech</div>
+                                    <div class="font-semibold text-sm">R$ 129,90</div>
+                                </div>
+                                
+                                <div class="text-2xl">+</div>
+                                
+                                <!-- Additional Product -->
+                                <div class="text-center">
+                                    <div class="w-24 h-24 mx-auto bg-gray-100 rounded-lg flex items-center justify-center mb-2">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='white'/%3E%3Cpath d='M120 120 L 280 120 L 280 280 L 120 280 Z' fill='%23f0f0f0' stroke='black' stroke-width='8'/%3E%3Cpath d='M160 160 L 240 160 L 240 240 L 160 240 Z' fill='white' stroke='black' stroke-width='4'/%3E%3Cpath d='M200 120 L 200 160 M 200 240 L 200 280 M 120 200 L 160 200 M 240 200 L 280 200' stroke='black' stroke-width='4'/%3E%3Ctext x='200' y='330' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='16' fill='black'%3EDOGGYSHINE%3C/text%3E%3C/svg%3E" alt="Plaquinha de Identificação" class="max-h-full max-w-full object-contain">
+                                    </div>
+                                    <div class="text-xs">Plaquinha de Identificação</div>
+                                    <div class="font-semibold text-sm">R$ 49,90</div>
+                                </div>
+                            </div>
+                            
+                            <div class="md:w-1/4 flex flex-col items-center justify-center border-t md:border-t-0 md:border-l border-gray-200 pt-4 md:pt-0 md:pl-4 mt-4 md:mt-0">
+                                <div class="mb-2 text-center">
+                                    <div class="text-gray-500 line-through text-sm">R$ 179,80</div>
+                                    <div class="text-xl font-bold">R$ 159,90</div>
+                                    <div class="text-green-600 text-sm">Economize R$ 19,90</div>
+                                </div>
+                                <button class="w-full bg-black text-white py-2 px-4 rounded hover:bg-gray-800 transition text-sm">Adicionar Conjunto</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow-md p-2 hover:bg-gray-100 transition hidden md:block" onclick="scrollCarousel('buy-together-carousel', -300)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow-md p-2 hover:bg-gray-100 transition hidden md:block" onclick="scrollCarousel('buy-together-carousel', 300)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Related Products -->
+        <div class="mt-12">
+            <h2 class="text-2xl font-bold mb-6">Produtos Relacionados</h2>
+            <div class="relative">
+                <div id="related-products-carousel" class="carousel grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <!-- Product 1 -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <div class="relative">
+                            <div class="h-48 flex items-center justify-center p-4 bg-gray-50">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='white'/%3E%3Cpath d='M150 100 L 250 100 L 300 200 L 250 300 L 150 300 L 100 200 Z' fill='%23f0f0f0' stroke='black' stroke-width='8'/%3E%3Ccircle cx='200' cy='200' r='50' fill='white' stroke='black' stroke-width='4'/%3E%3Ctext x='200' y='330' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='16' fill='black'%3EDOGGYSHINE%3C/text%3E%3C/svg%3E" alt="Guia Retrátil" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="absolute top-2 right-2 bg-black text-white text-xs px-2 py-1 rounded">Novo</div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-medium mb-1">Guia Retrátil Premium</h3>
+                            <div class="flex text-yellow-400 text-xs mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-500 ml-1">(28)</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold">R$ 89,90</span>
+                                </div>
+                                <button class="bg-black text-white p-2 rounded-full hover:bg-gray-800 transition">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <div class="relative">
+                            <div class="h-48 flex items-center justify-center p-4 bg-gray-50">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='white'/%3E%3Cpath d='M120 120 L 280 120 L 280 280 L 120 280 Z' fill='%23f0f0f0' stroke='black' stroke-width='8'/%3E%3Cpath d='M160 160 L 240 160 L 240 240 L 160 240 Z' fill='white' stroke='black' stroke-width='4'/%3E%3Cpath d='M200 120 L 200 160 M 200 240 L 200 280 M 120 200 L 160 200 M 240 200 L 280 200' stroke='black' stroke-width='4'/%3E%3Ctext x='200' y='330' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='16' fill='black'%3EDOGGYSHINE%3C/text%3E%3C/svg%3E" alt="Plaquinha de Identificação" class="max-h-full max-w-full object-contain">
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-medium mb-1">Plaquinha de Identificação</h3>
+                            <div class="flex text-yellow-400 text-xs mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="text-gray-500 ml-1">(42)</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold">R$ 49,90</span>
+                                </div>
+                                <button class="bg-black text-white p-2 rounded-full hover:bg-gray-800 transition">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <div class="relative">
+                            <div class="h-48 flex items-center justify-center p-4 bg-gray-50">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='white'/%3E%3Cpath d='M200 80 C 130 80, 80 130, 80 200 C 80 270, 130 320, 200 320 C 270 320, 320 270, 320 200 C 320 130, 270 80, 200 80 Z' fill='%23f0f0f0' stroke='black' stroke-width='8'/%3E%3Cpath d='M170 150 C 170 140, 230 140, 230 150 L 230 250 C 230 260, 170 260, 170 250 Z' fill='white' stroke='black' stroke-width='4'/%3E%3Ctext x='200' y='330' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='16' fill='black'%3EDOGGYSHINE%3C/text%3E%3C/svg%3E" alt="Perfume Pet" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="absolute top-2 right-2 bg-green-600 text-white text-xs px-2 py-1 rounded">-15%</div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-medium mb-1">Perfume Pet Premium</h3>
+                            <div class="flex text-yellow-400 text-xs mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="text-gray-500 ml-1">(19)</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold">R$ 39,90</span>
+                                    <span class="text-gray-500 line-through text-xs ml-1">R$ 46,90</span>
+                                </div>
+                                <button class="bg-black text-white p-2 rounded-full hover:bg-gray-800 transition">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <div class="relative">
+                            <div class="h-48 flex items-center justify-center p-4 bg-gray-50">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='white'/%3E%3Cpath d='M100 150 L 300 150 L 300 250 L 100 250 Z' fill='%23f0f0f0' stroke='black' stroke-width='8'/%3E%3Cpath d='M120 170 L 280 170 L 280 230 L 120 230 Z' fill='white' stroke='black' stroke-width='4'/%3E%3Ccircle cx='150' cy='200' r='10' fill='black'/%3E%3Ccircle cx='250' cy='200' r='10' fill='black'/%3E%3Ctext x='200' y='330' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='16' fill='black'%3EDOGGYSHINE%3C/text%3E%3C/svg%3E" alt="Cama Pet" class="max-h-full max-w-full object-contain">
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-medium mb-1">Cama Pet Luxo</h3>
+                            <div class="flex text-yellow-400 text-xs mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-500 ml-1">(36)</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold">R$ 149,90</span>
+                                </div>
+                                <button class="bg-black text-white p-2 rounded-full hover:bg-gray-800 transition">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white mt-16 py-10 px-4 md:px-8">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">DOGGY<span class="text-gray-400">SHINE</span></h3>
+                    <p class="text-gray-400 text-sm">
+                        Acessórios premium para pets que combinam estilo, conforto e tecnologia.
+                    </p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Categorias</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-white transition">Coleiras</a></li>
+                        <li><a href="#" class="hover:text-white transition">Guias</a></li>
+                        <li><a href="#" class="hover:text-white transition">Identificação</a></li>
+                        <li><a href="#" class="hover:text-white transition">Camas</a></li>
+                        <li><a href="#" class="hover:text-white transition">Brinquedos</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Informações</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-white transition">Sobre Nós</a></li>
+                        <li><a href="#" class="hover:text-white transition">Política de Privacidade</a></li>
+                        <li><a href="#" class="hover:text-white transition">Termos e Condições</a></li>
+                        <li><a href="#" class="hover:text-white transition">Política de Devolução</a></li>
+                        <li><a href="#" class="hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contato</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                            <span>Av. Paulista, 1000, São Paulo - SP</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            <span>(11) 99999-9999</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>contato@doggyshine.com.br</span>
+                        </li>
+                    </ul>
+                    <div class="mt-4">
+                        <h5 class="text-sm font-medium mb-2">Inscreva-se para novidades</h5>
+                        <div class="flex">
+                            <input type="email" placeholder="Seu e-mail" class="px-3 py-2 text-black text-sm rounded-l focus:outline-none flex-grow">
+                            <button class="bg-white text-black px-3 py-2 rounded-r hover:bg-gray-200 transition">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-400 text-sm mb-4 md:mb-0">
+                    © 2023 DoggyShine. Todos os direitos reservados.
+                </div>
+                <div class="flex space-x-4">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='4' fill='white'/%3E%3Cpath d='M8 20 L32 20 M20 8 L20 32' stroke='black' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E" alt="Visa" class="h-8">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='4' fill='white'/%3E%3Ccircle cx='15' cy='20' r='8' fill='red' fill-opacity='0.8'/%3E%3Ccircle cx='25' cy='20' r='8' fill='orange' fill-opacity='0.8'/%3E%3C/svg%3E" alt="Mastercard" class="h-8">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='4' fill='white'/%3E%3Cpath d='M10 15 L30 15 L27 25 L13 25 Z' fill='none' stroke='black' stroke-width='2'/%3E%3Cpath d='M15 28 L17 28 M23 28 L25 28' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E" alt="PayPal" class="h-8">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='4' fill='white'/%3E%3Cpath d='M12 20 C12 16, 16 12, 20 12 C24 12, 28 16, 28 20 C28 24, 24 28, 20 28 C16 28, 12 24, 12 20 Z' fill='none' stroke='black' stroke-width='2'/%3E%3Cpath d='M20 16 L20 20 L24 20' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E" alt="Pix" class="h-8">
+                </div>
+            </div>
+        </div>
+    </footer>
+            
+            
+</body>
+</html>

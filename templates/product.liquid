@@ -1,0 +1,48 @@
+<main>
+  <h2>{{ product.title }}</h2>
+  <p><strong>Vendedor:</strong> {{ product.vendor }}</p>
+  {% if product.featured_image %}
+    <img src="{{ product.featured_image | img_url: '600x600' }}" alt="{{ product.title }}" style="max-width:300px;">
+  {% endif %}
+  <p><strong>Preço:</strong> <span id="product-price">{{ product.price | money }}</span></p>
+  {% if product.available %}
+    <form id="product-form" action="/cart/add" method="post">
+      <input type="hidden" id="variant-id" name="id" value="{{ product.variants.first.id }}">
+      {% if product.variants.size > 1 %}
+        <label for="variant-select">Escolha uma opção:</label>
+        <select id="variant-select" name="variant-select">
+          {% for variant in product.variants %}
+            <option value="{{ variant.id }}" data-price="{{ variant.price | money }}" {% if forloop.first %}selected{% endif %}>{{ variant.title }} - {{ variant.price | money }} {% if variant.available == false %}(Esgotado){% endif %}</option>
+          {% endfor %}
+        </select>
+      {% endif %}
+      <label for="quantity">Quantidade:</label>
+      <input type="number" id="quantity" name="quantity" value="1" min="1" max="{{ product.variants.first.inventory_quantity }}">
+      <button type="submit">Adicionar ao carrinho</button>
+    </form>
+    <button id="open-minicart" style="margin-top:10px;">Ver minicarrinho</button>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var select = document.getElementById('variant-select');
+        var input = document.getElementById('variant-id');
+        var price = document.getElementById('product-price');
+        if (select && input) {
+          select.addEventListener('change', function() {
+            input.value = select.value;
+            var selected = select.options[select.selectedIndex];
+            if (price && selected.dataset.price) {
+              price.textContent = selected.dataset.price;
+            }
+          });
+        }
+      });
+    </script>
+  {% else %}
+    <p><strong>Produto esgotado</strong></p>
+  {% endif %}
+  <div style="margin-top:20px;">
+    <h3>Descrição</h3>
+    <div>{{ product.description }}</div>
+  </div>
+  
+</main> 

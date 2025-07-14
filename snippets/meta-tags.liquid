@@ -1,0 +1,9 @@
+{%- comment -%}
+  Meta tags para SEO e redes sociais
+{%- endcomment -%}
+<meta name="description" content="{{ shop.meta_description | escape }}">
+<meta property="og:title" content="{{ page_title }}">
+<meta property="og:description" content="{{ shop.meta_description | escape }}">
+<meta property="og:url" content="{{ shop.url }}{{ request.path }}">
+<meta property="og:image" content="{{ 'logo.png' | asset_url }}">
+<meta name="twitter:card" content="summary_large_image"> 

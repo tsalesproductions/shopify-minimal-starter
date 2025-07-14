@@ -1,0 +1,843 @@
+<html lang="pt-BR"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias | PetTech Acessórios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f8f8;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-pill.active {
+            background-color: #000;
+            color: white;
+        }
+        
+        .loader {
+            border-top-color: #000;
+            animation: spinner 0.6s linear infinite;
+        }
+        
+        @keyframes spinner {
+            to {transform: rotate(360deg);}
+        }
+
+        /* Mobile sidebar animation */
+        .sidebar-container {
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .sidebar-container.hidden-sidebar {
+            transform: translateX(-100%);
+        }
+
+        @media (min-width: 768px) {
+            .sidebar-container.hidden-sidebar {
+                transform: translateX(0);
+            }
+        }
+
+        .overlay {
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.invisible{visibility:hidden}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.inset-y-0{top:0px;bottom:0px}.-right-2{right:-0.5rem}.-top-2{top:-0.5rem}.left-0{left:0px}.left-2{left:0.5rem}.right-2{right:0.5rem}.right-3{right:0.75rem}.top-0{top:0px}.top-2{top:0.5rem}.top-2\.5{top:0.625rem}.z-20{z-index:20}.z-30{z-index:30}.mx-2{margin-left:0.5rem;margin-right:0.5rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-0\.5{margin-bottom:0.125rem}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.ml-1{margin-left:0.25rem}.ml-2{margin-left:0.5rem}.mr-2{margin-right:0.5rem}.mt-1{margin-top:0.25rem}.mt-10{margin-top:2.5rem}.mt-2{margin-top:0.5rem}.mt-8{margin-top:2rem}.line-clamp-1{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-2{height:0.5rem}.h-20{height:5rem}.h-40{height:10rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-screen{height:100vh}.w-20{width:5rem}.w-4\/5{width:80%}.w-40{width:10rem}.w-5{width:1.25rem}.w-full{width:100%}.max-w-3xl{max-width:48rem}.max-w-lg{max-width:32rem}.flex-grow{flex-grow:1}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.appearance-none{-webkit-appearance:none;appearance:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-8{gap:2rem}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-6 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.5rem * var(--tw-space-x-reverse));margin-left:calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.whitespace-nowrap{white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-l-md{border-top-left-radius:0.375rem;border-bottom-left-radius:0.375rem}.rounded-r-md{border-top-right-radius:0.375rem;border-bottom-right-radius:0.375rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-b-2{border-bottom-width:2px}.border-t{border-top-width:1px}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity, 1))}.border-gray-800{--tw-border-opacity:1;border-color:rgb(31 41 55 / var(--tw-border-opacity, 1))}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.bg-gray-800{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity, 1))}.bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity, 1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94 / var(--tw-bg-opacity, 1))}.bg-red-500{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-opacity-50{--tw-bg-opacity:0.5}.p-1\.5{padding:0.375rem}.p-2{padding:0.5rem}.p-6{padding:1.5rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-2{padding-bottom:0.5rem}.pb-4{padding-bottom:1rem}.pt-6{padding-top:1.5rem}.text-left{text-align:left}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.tracking-wider{letter-spacing:0.05em}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-yellow-400{--tw-text-opacity:1;color:rgb(250 204 21 / var(--tw-text-opacity, 1))}.line-through{-webkit-text-decoration-line:line-through;text-decoration-line:line-through}.opacity-0{opacity:0}.shadow{--tw-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.hover\:bg-gray-100:hover{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.hover\:bg-gray-200:hover{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.hover\:bg-gray-50:hover{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.hover\:bg-gray-800:hover{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity, 1))}.hover\:text-black:hover{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.hover\:text-gray-300:hover{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-1:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-black:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(0 0 0 / var(--tw-ring-opacity, 1))}.focus\:ring-white:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(255 255 255 / var(--tw-ring-opacity, 1))}@media (min-width: 640px){.sm\:mb-0{margin-bottom:0px}.sm\:mb-1{margin-bottom:0.25rem}.sm\:mb-2{margin-bottom:0.5rem}.sm\:block{display:block}.sm\:inline{display:inline}.sm\:hidden{display:none}.sm\:h-32{height:8rem}.sm\:h-64{height:16rem}.sm\:w-32{width:8rem}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:gap-6{gap:1.5rem}.sm\:p-2{padding:0.5rem}.sm\:p-4{padding:1rem}.sm\:px-3{padding-left:0.75rem;padding-right:0.75rem}.sm\:py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}}@media (min-width: 768px){.md\:relative{position:relative}.md\:z-auto{z-index:auto}.md\:mb-0{margin-bottom:0px}.md\:flex{display:flex}.md\:hidden{display:none}.md\:h-auto{height:auto}.md\:w-1\/4{width:25%}.md\:w-3\/4{width:75%}.md\:w-64{width:16rem}.md\:transform-none{transform:none}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}}@media (min-width: 1024px){.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}}</style></head>
+<body>
+    <!-- Header -->
+    <header class="bg-black text-white">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-paw text-2xl"></i>
+                    <h1 class="text-xl font-bold tracking-wider">PETTECH</h1>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#" class="hover:text-gray-300 transition">Início</a>
+                    <a href="#" class="border-b-2 border-white hover:text-gray-300 transition">Categorias</a>
+                    <a href="#" class="hover:text-gray-300 transition">Ofertas</a>
+                    <a href="#" class="hover:text-gray-300 transition">Sobre</a>
+                    <a href="#" class="hover:text-gray-300 transition">Contato</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative hidden sm:block">
+                        <input type="text" placeholder="Buscar produtos..." class="bg-gray-800 text-white px-4 py-2 rounded-full text-sm w-40 md:w-64 focus:outline-none focus:ring-2 focus:ring-white">
+                        <button class="absolute right-3 top-2.5 text-gray-400">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <a href="#" class="hover:text-gray-300"><i class="fas fa-user"></i></a>
+                    <a href="#" class="hover:text-gray-300 relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="absolute -top-2 -right-2 bg-white text-black rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">3</span>
+                    </a>
+                    <button class="md:hidden" id="mobile-menu-button">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white border-b">
+        <div class="container mx-auto px-4 py-2">
+            <div class="flex items-center text-sm text-gray-600">
+                <a href="#" class="hover:text-black">Início</a>
+                <span class="mx-2">/</span>
+                <span class="font-medium text-black">Categorias</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- Mobile Filter Button -->
+            <div class="md:hidden w-full mb-4">
+                <button id="filter-button" class="w-full bg-black text-white py-3 px-4 rounded-md flex justify-between items-center">
+                    <span class="flex items-center">
+                        <i class="fas fa-filter mr-2"></i>
+                        Filtros e Categorias
+                    </span>
+                    <i class="fas fa-chevron-down" id="filter-icon"></i>
+                </button>
+            </div>
+
+            <!-- Overlay for mobile -->
+            <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 md:hidden opacity-0 invisible"></div>
+
+            <!-- Sidebar -->
+            <div id="sidebar-container" class="sidebar-container fixed md:relative inset-y-0 left-0 w-4/5 md:w-1/4 bg-white z-30 md:z-auto shadow-lg md:shadow-sm transform hidden-sidebar md:transform-none overflow-y-auto h-screen md:h-auto">
+                <div class="p-6 sticky top-0">
+                    <!-- Mobile Close Button -->
+                    <div class="flex justify-between items-center mb-6 md:hidden">
+                        <h2 class="text-xl font-bold">Filtros</h2>
+                        <button id="close-sidebar" class="text-gray-500 hover:text-black">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+
+                    <h2 class="text-xl font-bold mb-4 pb-2 border-b">Categorias</h2>
+                    <ul class="space-y-2">
+                        <li>
+                            <button class="category-btn w-full text-left py-2 px-3 rounded-md hover:bg-gray-100 flex justify-between items-center active" data-category="coleiras">
+                                <span>Coleiras &amp; Guias</span>
+                                <span class="text-gray-500 text-sm">(24)</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="category-btn w-full text-left py-2 px-3 rounded-md hover:bg-gray-100 flex justify-between items-center" data-category="camas">
+                                <span>Camas &amp; Conforto</span>
+                                <span class="text-gray-500 text-sm">(18)</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="category-btn w-full text-left py-2 px-3 rounded-md hover:bg-gray-100 flex justify-between items-center" data-category="brinquedos">
+                                <span>Brinquedos</span>
+                                <span class="text-gray-500 text-sm">(32)</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="category-btn w-full text-left py-2 px-3 rounded-md hover:bg-gray-100 flex justify-between items-center" data-category="alimentacao">
+                                <span>Alimentação</span>
+                                <span class="text-gray-500 text-sm">(15)</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="category-btn w-full text-left py-2 px-3 rounded-md hover:bg-gray-100 flex justify-between items-center" data-category="higiene">
+                                <span>Higiene &amp; Beleza</span>
+                                <span class="text-gray-500 text-sm">(21)</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="category-btn w-full text-left py-2 px-3 rounded-md hover:bg-gray-100 flex justify-between items-center" data-category="roupas">
+                                <span>Roupas &amp; Acessórios</span>
+                                <span class="text-gray-500 text-sm">(27)</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="category-btn w-full text-left py-2 px-3 rounded-md hover:bg-gray-100 flex justify-between items-center" data-category="saude">
+                                <span>Saúde &amp; Bem-estar</span>
+                                <span class="text-gray-500 text-sm">(12)</span>
+                            </button>
+                        </li>
+                    </ul>
+
+                    <h2 class="text-xl font-bold mt-8 mb-4 pb-2 border-b">Filtros</h2>
+                    
+                    <div class="mb-6">
+                        <h3 class="font-semibold mb-2">Preço</h3>
+                        <div class="flex items-center">
+                            <input type="range" min="0" max="500" value="250" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                        </div>
+                        <div class="flex justify-between mt-2 text-sm text-gray-600">
+                            <span>R$ 0</span>
+                            <span>R$ 500</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h3 class="font-semibold mb-2">Tamanho do Pet</h3>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="form-checkbox rounded text-black">
+                                <span class="ml-2">Pequeno</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="form-checkbox rounded text-black">
+                                <span class="ml-2">Médio</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="form-checkbox rounded text-black">
+                                <span class="ml-2">Grande</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h3 class="font-semibold mb-2">Avaliações</h3>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="form-checkbox rounded text-black">
+                                <span class="ml-2 flex items-center">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                </span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="form-checkbox rounded text-black">
+                                <span class="ml-2 flex items-center">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-gray-300"></i>
+                                    <span class="ml-1 text-sm text-gray-600">ou mais</span>
+                                </span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="form-checkbox rounded text-black">
+                                <span class="ml-2 flex items-center">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                    <i class="fas fa-star text-gray-300"></i>
+                                    <i class="fas fa-star text-gray-300"></i>
+                                    <span class="ml-1 text-sm text-gray-600">ou mais</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800 transition">
+                        Aplicar Filtros
+                    </button>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="w-full md:w-3/4">
+                <div class="mb-6">
+                    <h1 class="text-2xl font-bold mb-2" id="category-title">Coleiras &amp; Guias</h1>
+                    <p class="text-gray-600" id="category-description">Encontre coleiras e guias de alta qualidade para seu pet, combinando estilo, conforto e segurança.</p>
+                </div>
+
+                <!-- Category Pills -->
+                <div class="flex flex-wrap gap-2 mb-6 overflow-x-auto pb-2">
+                    <button class="category-pill px-4 py-2 rounded-full border border-gray-300 text-sm font-medium hover:bg-gray-100 active whitespace-nowrap">Todos</button>
+                    <button class="category-pill px-4 py-2 rounded-full border border-gray-300 text-sm font-medium hover:bg-gray-100 whitespace-nowrap">Coleiras Inteligentes</button>
+                    <button class="category-pill px-4 py-2 rounded-full border border-gray-300 text-sm font-medium hover:bg-gray-100 whitespace-nowrap">Guias Retráteis</button>
+                    <button class="category-pill px-4 py-2 rounded-full border border-gray-300 text-sm font-medium hover:bg-gray-100 whitespace-nowrap">Coleiras de Couro</button>
+                    <button class="category-pill px-4 py-2 rounded-full border border-gray-300 text-sm font-medium hover:bg-gray-100 whitespace-nowrap">Coleiras Personalizadas</button>
+                </div>
+
+                <!-- Sort and View Options -->
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 pb-4 border-b">
+                    <p class="text-gray-600 mb-2 sm:mb-0">Mostrando <span class="font-medium">24</span> produtos</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center">
+                            <label for="sort" class="mr-2 text-sm">Ordenar por:</label>
+                            <select id="sort" class="border rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-black">
+                                <option>Mais Relevantes</option>
+                                <option>Menor Preço</option>
+                                <option>Maior Preço</option>
+                                <option>Mais Avaliados</option>
+                                <option>Mais Recentes</option>
+                            </select>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button class="p-1.5 rounded-md bg-black text-white">
+                                <i class="fas fa-th-large"></i>
+                            </button>
+                            <button class="p-1.5 rounded-md hover:bg-gray-100">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Grid - UPDATED to show 2 products per row on mobile -->
+                <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6" id="products-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+                        <div class="relative">
+                            <div class="h-40 sm:h-64 bg-gray-100 flex items-center justify-center">
+                                <svg class="w-20 h-20 sm:w-32 sm:h-32 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                                    <path d="M14.5 11c.83 0 1.5-.67 1.5-1.5S15.33 8 14.5 8 13 8.67 13 9.5s.67 1.5 1.5 1.5zm-5-2C8.67 9 8 8.33 8 7.5S8.67 6 9.5 6s1.5.67 1.5 1.5S10.33 9 9.5 9zm5 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-5 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="absolute top-2 left-2">
+                                <span class="bg-black text-white text-xs px-2 py-1 rounded">NOVO</span>
+                            </div>
+                            <div class="absolute top-2 right-2">
+                                <button class="bg-white rounded-full p-1.5 sm:p-2 shadow hover:bg-gray-100">
+                                    <i class="far fa-heart text-xs sm:text-base"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-2 sm:p-4">
+                            <div class="flex items-center mb-1">
+                                <div class="flex text-yellow-400 text-xs sm:text-sm">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="text-xs text-gray-500 ml-1">(42)</span>
+                            </div>
+                            <h3 class="font-medium text-sm sm:text-base mb-0.5 sm:mb-1 line-clamp-1">Coleira Inteligente GPS</h3>
+                            <p class="text-xs sm:text-sm text-gray-600 mb-1 sm:mb-2 line-clamp-1">Rastreamento em tempo real</p>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold text-sm sm:text-base">R$ 189,90</span>
+                                    <span class="text-xs text-gray-500 line-through ml-1 hidden sm:inline">R$ 249,90</span>
+                                </div>
+                                <button class="bg-black text-white px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm hover:bg-gray-800 transition">
+                                    <span class="hidden sm:inline">Adicionar</span>
+                                    <i class="fas fa-plus sm:hidden"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+                        <div class="relative">
+                            <div class="h-40 sm:h-64 bg-gray-100 flex items-center justify-center">
+                                <svg class="w-20 h-20 sm:w-32 sm:h-32 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                                    <path d="M14.5 11c.83 0 1.5-.67 1.5-1.5S15.33 8 14.5 8 13 8.67 13 9.5s.67 1.5 1.5 1.5zm-5-2C8.67 9 8 8.33 8 7.5S8.67 6 9.5 6s1.5.67 1.5 1.5S10.33 9 9.5 9zm5 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-5 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="absolute top-2 right-2">
+                                <button class="bg-white rounded-full p-1.5 sm:p-2 shadow hover:bg-gray-100">
+                                    <i class="far fa-heart text-xs sm:text-base"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-2 sm:p-4">
+                            <div class="flex items-center mb-1">
+                                <div class="flex text-yellow-400 text-xs sm:text-sm">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="text-xs text-gray-500 ml-1">(28)</span>
+                            </div>
+                            <h3 class="font-medium text-sm sm:text-base mb-0.5 sm:mb-1 line-clamp-1">Guia Retrátil Premium</h3>
+                            <p class="text-xs sm:text-sm text-gray-600 mb-1 sm:mb-2 line-clamp-1">Até 5m com trava de segurança</p>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold text-sm sm:text-base">R$ 79,90</span>
+                                </div>
+                                <button class="bg-black text-white px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm hover:bg-gray-800 transition">
+                                    <span class="hidden sm:inline">Adicionar</span>
+                                    <i class="fas fa-plus sm:hidden"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+                        <div class="relative">
+                            <div class="h-40 sm:h-64 bg-gray-100 flex items-center justify-center">
+                                <svg class="w-20 h-20 sm:w-32 sm:h-32 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                                    <path d="M14.5 11c.83 0 1.5-.67 1.5-1.5S15.33 8 14.5 8 13 8.67 13 9.5s.67 1.5 1.5 1.5zm-5-2C8.67 9 8 8.33 8 7.5S8.67 6 9.5 6s1.5.67 1.5 1.5S10.33 9 9.5 9zm5 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-5 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="absolute top-2 left-2">
+                                <span class="bg-red-500 text-white text-xs px-2 py-1 rounded">-25%</span>
+                            </div>
+                            <div class="absolute top-2 right-2">
+                                <button class="bg-white rounded-full p-1.5 sm:p-2 shadow hover:bg-gray-100">
+                                    <i class="far fa-heart text-xs sm:text-base"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-2 sm:p-4">
+                            <div class="flex items-center mb-1">
+                                <div class="flex text-yellow-400 text-xs sm:text-sm">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="text-xs text-gray-500 ml-1">(56)</span>
+                            </div>
+                            <h3 class="font-medium text-sm sm:text-base mb-0.5 sm:mb-1 line-clamp-1">Coleira de Couro Premium</h3>
+                            <p class="text-xs sm:text-sm text-gray-600 mb-1 sm:mb-2 line-clamp-1">Couro legítimo com detalhes metálicos</p>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold text-sm sm:text-base">R$ 119,90</span>
+                                    <span class="text-xs text-gray-500 line-through ml-1 hidden sm:inline">R$ 159,90</span>
+                                </div>
+                                <button class="bg-black text-white px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm hover:bg-gray-800 transition">
+                                    <span class="hidden sm:inline">Adicionar</span>
+                                    <i class="fas fa-plus sm:hidden"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+                        <div class="relative">
+                            <div class="h-40 sm:h-64 bg-gray-100 flex items-center justify-center">
+                                <svg class="w-20 h-20 sm:w-32 sm:h-32 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                                    <path d="M14.5 11c.83 0 1.5-.67 1.5-1.5S15.33 8 14.5 8 13 8.67 13 9.5s.67 1.5 1.5 1.5zm-5-2C8.67 9 8 8.33 8 7.5S8.67 6 9.5 6s1.5.67 1.5 1.5S10.33 9 9.5 9zm5 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-5 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="absolute top-2 right-2">
+                                <button class="bg-white rounded-full p-1.5 sm:p-2 shadow hover:bg-gray-100">
+                                    <i class="far fa-heart text-xs sm:text-base"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-2 sm:p-4">
+                            <div class="flex items-center mb-1">
+                                <div class="flex text-yellow-400 text-xs sm:text-sm">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="text-xs text-gray-500 ml-1">(19)</span>
+                            </div>
+                            <h3 class="font-medium text-sm sm:text-base mb-0.5 sm:mb-1 line-clamp-1">Coleira Personalizada</h3>
+                            <p class="text-xs sm:text-sm text-gray-600 mb-1 sm:mb-2 line-clamp-1">Com nome e telefone gravados</p>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold text-sm sm:text-base">R$ 59,90</span>
+                                </div>
+                                <button class="bg-black text-white px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm hover:bg-gray-800 transition">
+                                    <span class="hidden sm:inline">Adicionar</span>
+                                    <i class="fas fa-plus sm:hidden"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+                        <div class="relative">
+                            <div class="h-40 sm:h-64 bg-gray-100 flex items-center justify-center">
+                                <svg class="w-20 h-20 sm:w-32 sm:h-32 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                                    <path d="M14.5 11c.83 0 1.5-.67 1.5-1.5S15.33 8 14.5 8 13 8.67 13 9.5s.67 1.5 1.5 1.5zm-5-2C8.67 9 8 8.33 8 7.5S8.67 6 9.5 6s1.5.67 1.5 1.5S10.33 9 9.5 9zm5 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-5 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="absolute top-2 left-2">
+                                <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">BESTSELLER</span>
+                            </div>
+                            <div class="absolute top-2 right-2">
+                                <button class="bg-white rounded-full p-1.5 sm:p-2 shadow hover:bg-gray-100">
+                                    <i class="far fa-heart text-xs sm:text-base"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-2 sm:p-4">
+                            <div class="flex items-center mb-1">
+                                <div class="flex text-yellow-400 text-xs sm:text-sm">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="text-xs text-gray-500 ml-1">(87)</span>
+                            </div>
+                            <h3 class="font-medium text-sm sm:text-base mb-0.5 sm:mb-1 line-clamp-1">Coleira LED Noturna</h3>
+                            <p class="text-xs sm:text-sm text-gray-600 mb-1 sm:mb-2 line-clamp-1">Visibilidade e segurança à noite</p>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold text-sm sm:text-base">R$ 69,90</span>
+                                </div>
+                                <button class="bg-black text-white px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm hover:bg-gray-800 transition">
+                                    <span class="hidden sm:inline">Adicionar</span>
+                                    <i class="fas fa-plus sm:hidden"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="product-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+                        <div class="relative">
+                            <div class="h-40 sm:h-64 bg-gray-100 flex items-center justify-center">
+                                <svg class="w-20 h-20 sm:w-32 sm:h-32 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                                    <path d="M14.5 11c.83 0 1.5-.67 1.5-1.5S15.33 8 14.5 8 13 8.67 13 9.5s.67 1.5 1.5 1.5zm-5-2C8.67 9 8 8.33 8 7.5S8.67 6 9.5 6s1.5.67 1.5 1.5S10.33 9 9.5 9zm5 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-5 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="absolute top-2 right-2">
+                                <button class="bg-white rounded-full p-1.5 sm:p-2 shadow hover:bg-gray-100">
+                                    <i class="far fa-heart text-xs sm:text-base"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-2 sm:p-4">
+                            <div class="flex items-center mb-1">
+                                <div class="flex text-yellow-400 text-xs sm:text-sm">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="text-xs text-gray-500 ml-1">(34)</span>
+                            </div>
+                            <h3 class="font-medium text-sm sm:text-base mb-0.5 sm:mb-1 line-clamp-1">Guia Dupla para Dois Pets</h3>
+                            <p class="text-xs sm:text-sm text-gray-600 mb-1 sm:mb-2 line-clamp-1">Passeie com dois pets sem emaranhados</p>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold text-sm sm:text-base">R$ 89,90</span>
+                                </div>
+                                <button class="bg-black text-white px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-xs sm:text-sm hover:bg-gray-800 transition">
+                                    <span class="hidden sm:inline">Adicionar</span>
+                                    <i class="fas fa-plus sm:hidden"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="mt-10 flex justify-center">
+                    <nav class="inline-flex rounded-md shadow">
+                        <a href="#" class="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                            <i class="fas fa-chevron-left"></i>
+                        </a>
+                        <a href="#" class="px-3 py-2 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                            1
+                        </a>
+                        <a href="#" class="px-3 py-2 border-t border-b border-gray-300 bg-black text-sm font-medium text-white">
+                            2
+                        </a>
+                        <a href="#" class="px-3 py-2 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                            3
+                        </a>
+                        <a href="#" class="px-3 py-2 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                            4
+                        </a>
+                        <a href="#" class="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Newsletter -->
+    <section class="bg-black text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-2xl font-bold mb-2">Receba novidades e ofertas exclusivas</h2>
+                <p class="mb-6">Cadastre-se para receber promoções e lançamentos em primeira mão</p>
+                <div class="flex flex-col sm:flex-row gap-2 max-w-lg mx-auto">
+                    <input type="email" placeholder="Seu melhor e-mail" class="flex-grow px-4 py-3 rounded-md focus:outline-none text-black">
+                    <button class="bg-white text-black px-6 py-3 rounded-md font-medium hover:bg-gray-200 transition">
+                        Inscrever-se
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-paw text-2xl"></i>
+                        <h2 class="text-xl font-bold tracking-wider">PETTECH</h2>
+                    </div>
+                    <p class="text-gray-400 mb-4">Acessórios tecnológicos e de alta qualidade para o seu melhor amigo.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Categorias</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Coleiras &amp; Guias</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Camas &amp; Conforto</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Brinquedos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Alimentação</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Higiene &amp; Beleza</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Roupas &amp; Acessórios</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Informações</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Sobre Nós</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Política de Privacidade</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Termos &amp; Condições</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Política de Devolução</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Contato</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">Av. Paulista, 1000 - São Paulo, SP</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">(11) 9999-9999</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">contato@pettech.com.br</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">Seg - Sex: 9h às 18h</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 PetTech. Todos os direitos reservados.</p>
+                <div class="flex space-x-4">
+                    <img src="https://via.placeholder.com/40x25/ffffff/000000?text=VISA" alt="Visa" class="h-6">
+                    <img src="https://via.placeholder.com/40x25/ffffff/000000?text=MC" alt="Mastercard" class="h-6">
+                    <img src="https://via.placeholder.com/40x25/ffffff/000000?text=AMEX" alt="American Express" class="h-6">
+                    <img src="https://via.placeholder.com/40x25/ffffff/000000?text=PIX" alt="Pix" class="h-6">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile sidebar functionality
+        const filterButton = document.getElementById('filter-button');
+        const sidebarContainer = document.getElementById('sidebar-container');
+        const closeSidebarButton = document.getElementById('close-sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        const filterIcon = document.getElementById('filter-icon');
+        
+        filterButton.addEventListener('click', function() {
+            sidebarContainer.classList.toggle('hidden-sidebar');
+            sidebarOverlay.classList.toggle('opacity-0');
+            sidebarOverlay.classList.toggle('invisible');
+            
+            // Toggle filter icon
+            if (filterIcon.classList.contains('fa-chevron-down')) {
+                filterIcon.classList.remove('fa-chevron-down');
+                filterIcon.classList.add('fa-chevron-up');
+            } else {
+                filterIcon.classList.remove('fa-chevron-up');
+                filterIcon.classList.add('fa-chevron-down');
+            }
+        });
+        
+        closeSidebarButton.addEventListener('click', function() {
+            sidebarContainer.classList.add('hidden-sidebar');
+            sidebarOverlay.classList.add('opacity-0');
+            sidebarOverlay.classList.add('invisible');
+            filterIcon.classList.remove('fa-chevron-up');
+            filterIcon.classList.add('fa-chevron-down');
+        });
+        
+        sidebarOverlay.addEventListener('click', function() {
+            sidebarContainer.classList.add('hidden-sidebar');
+            sidebarOverlay.classList.add('opacity-0');
+            sidebarOverlay.classList.add('invisible');
+            filterIcon.classList.remove('fa-chevron-up');
+            filterIcon.classList.add('fa-chevron-down');
+        });
+
+        // Category switching functionality
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const categoryTitle = document.getElementById('category-title');
+        const categoryDescription = document.getElementById('category-description');
+        
+        const categories = {
+            coleiras: {
+                title: "Coleiras & Guias",
+                description: "Encontre coleiras e guias de alta qualidade para seu pet, combinando estilo, conforto e segurança."
+            },
+            camas: {
+                title: "Camas & Conforto",
+                description: "Proporcione o máximo de conforto para seu pet com nossas camas, almofadas e acessórios de descanso."
+            },
+            brinquedos: {
+                title: "Brinquedos",
+                description: "Brinquedos interativos e divertidos para manter seu pet entretido e estimulado."
+            },
+            alimentacao: {
+                title: "Alimentação",
+                description: "Comedouros, bebedouros e acessórios inteligentes para a alimentação do seu pet."
+            },
+            higiene: {
+                title: "Higiene & Beleza",
+                description: "Produtos para manter seu pet limpo, cheiroso e saudável."
+            },
+            roupas: {
+                title: "Roupas & Acessórios",
+                description: "Roupas estilosas e acessórios fashion para seu pet desfilar por aí."
+            },
+            saude: {
+                title: "Saúde & Bem-estar",
+                description: "Produtos para cuidar da saúde e bem-estar do seu melhor amigo."
+            }
+        };
+        
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                categoryButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Update category title and description
+                const category = this.dataset.category;
+                if (categories[category]) {
+                    categoryTitle.textContent = categories[category].title;
+                    categoryDescription.textContent = categories[category].description;
+                    
+                    // Show loading state
+                    const productsGrid = document.getElementById('products-grid');
+                    productsGrid.innerHTML = `
+                        <div class="col-span-2 sm:col-span-2 lg:col-span-3 flex justify-center items-center py-20">
+                            <div class="loader h-12 w-12 rounded-full border-4 border-gray-200"></div>
+                        </div>
+                    `;
+                    
+                    // Simulate loading new products (in a real app, this would be an API call)
+                    setTimeout(() => {
+                        // For demo purposes, we're just showing the same products
+                        productsGrid.innerHTML = document.getElementById('products-grid').innerHTML;
+                        
+                        // Close sidebar on mobile after category selection
+                        if (window.innerWidth < 768) {
+                            sidebarContainer.classList.add('hidden-sidebar');
+                            sidebarOverlay.classList.add('opacity-0');
+                            sidebarOverlay.classList.add('invisible');
+                            filterIcon.classList.remove('fa-chevron-up');
+                            filterIcon.classList.add('fa-chevron-down');
+                        }
+                    }, 800);
+                }
+            });
+        });
+        
+        // Category pill functionality
+        const categoryPills = document.querySelectorAll('.category-pill');
+        categoryPills.forEach(pill => {
+            pill.addEventListener('click', function() {
+                categoryPills.forEach(p => p.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Add to cart functionality
+        const addToCartButtons = document.querySelectorAll('.product-card button');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const originalText = this.innerHTML.trim();
+                const isMobile = window.innerWidth < 640;
+                
+                if (isMobile) {
+                    this.innerHTML = '<i class="fas fa-check"></i>';
+                } else {
+                    this.innerHTML = '<i class="fas fa-check"></i> Adicionado';
+                }
+                
+                this.classList.add('bg-green-600');
+                
+                setTimeout(() => {
+                    if (isMobile) {
+                        this.innerHTML = '<i class="fas fa-plus"></i>';
+                    } else {
+                        this.textContent = 'Adicionar';
+                    }
+                    this.classList.remove('bg-green-600');
+                }, 1500);
+                
+                // Update cart count (in a real app, this would be more sophisticated)
+                const cartCount = document.querySelector('.fa-shopping-cart + span');
+                cartCount.textContent = parseInt(cartCount.textContent) + 1;
+            });
+        });
+        
+        // Favorite functionality
+        const favoriteButtons = document.querySelectorAll('.product-card .fa-heart');
+        favoriteButtons.forEach(icon => {
+            icon.parentElement.addEventListener('click', function() {
+                const heartIcon = this.querySelector('i');
+                if (heartIcon.classList.contains('far')) {
+                    heartIcon.classList.remove('far');
+                    heartIcon.classList.add('fas');
+                    heartIcon.classList.add('text-red-500');
+                } else {
+                    heartIcon.classList.remove('fas');
+                    heartIcon.classList.remove('text-red-500');
+                    heartIcon.classList.add('far');
+                }
+            });
+        });
+    </script>
+
+</body></html>

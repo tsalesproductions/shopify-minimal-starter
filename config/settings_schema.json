@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Geral",
+    "settings": [
+      {
+        "type": "text",
+        "id": "store_name",
+        "label": "Nome da loja"
+      }
+    ]
+  }
+] 
