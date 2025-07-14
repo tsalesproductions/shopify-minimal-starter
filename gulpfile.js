@@ -21,7 +21,7 @@ const paths = {
   },
   images: {
     src: 'src/images/**/*',
-    dest: 'assets/images/'
+    dest: 'assets/'
   }
 };
 
