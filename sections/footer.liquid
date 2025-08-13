@@ -2,50 +2,6 @@
 {
   "name": "Footer",
   "settings": [
-    {
-      "type": "textarea",
-      "id": "store_description",
-      "label": "Descrição da loja",
-      "default": "Acessórios premium que combinam estilo, conforto e tecnologia para o melhor amigo do homem."
-    },
-    {
-      "type": "text",
-      "id": "address",
-      "label": "Endereço",
-      "default": "Av. Paulista, 1000, São Paulo - SP"
-    },
-    {
-      "type": "text",
-      "id": "phone",
-      "label": "Telefone",
-      "default": "(11) 99999-9999"
-    },
-    {
-      "type": "text",
-      "id": "email",
-      "label": "E-mail",
-      "default": "contato@doggyshine.com"
-    },
-    {
-      "type": "url",
-      "id": "facebook_url",
-      "label": "Facebook URL",
-    },
-    {
-      "type": "url",
-      "id": "instagram_url",
-      "label": "Instagram URL",
-    },
-    {
-      "type": "url",
-      "id": "twitter_url",
-      "label": "Twitter URL",
-    },
-    {
-      "type": "url",
-      "id": "youtube_url",
-      "label": "YouTube URL",
-    }
   ],
   "presets": [
     {
@@ -62,45 +18,45 @@
       <div>
         <h3 class="text-xl font-bold mb-4">{{ settings.store_name }}</h3>
         <p class="text-gray-400 mb-4">
-          {{ section.settings.store_description }}
+          {{ settings.store_description }}
         </p>
         <div class="flex space-x-4">
-            {% if settings.facebook_url %}
+            {% if settings.facebook_url != blank %}
             <a href="{{ settings.facebook_url }}" class="text-gray-400 hover:text-white transition">
               <i class="fab fa-facebook-f"></i>
             </a>
             {% endif %}
-            {% if settings.instagram_url %}
+            {% if settings.instagram_url != blank %}
             <a href="{{ settings.instagram_url }}" class="text-gray-400 hover:text-white transition">
               <i class="fab fa-instagram"></i>
             </a>
             {% endif %}
-            {% if settings.twitter_url %}
+            {% if settings.twitter_url != blank %}
             <a href="{{ settings.twitter_url }}" class="text-gray-400 hover:text-white transition">
               <i class="fab fa-twitter"></i>
             </a>
             {% endif %}
-            {% if settings.pinterest_url %}
+            {% if settings.pinterest_url != blank %}
             <a href="{{ settings.pinterest_url }}" class="text-gray-400 hover:text-white transition">
               <i class="fab fa-pinterest"></i>
             </a>
             {% endif %}
-            {% if settings.youtube_url %}
+            {% if settings.youtube_url != blank %}
             <a href="{{ settings.youtube_url }}" class="text-gray-400 hover:text-white transition">
               <i class="fab fa-youtube"></i>
             </a>
             {% endif %}
-            {% if settings.tiktok_url %}
+            {% if settings.tiktok_url != blank %}
             <a href="{{ settings.tiktok_url }}" class="text-gray-400 hover:text-white transition">
               <i class="fab fa-tiktok"></i>
             </a>
             {% endif %}
-            {% if settings.linkedin_url %}
+            {% if settings.linkedin_url != blank %}
             <a href="{{ settings.linkedin_url }}" class="text-gray-400 hover:text-white transition">
               <i class="fab fa-linkedin"></i>
             </a>
             {% endif %}
-            {% if settings.telegram_url %}
+            {% if settings.telegram_url != blank %}
             <a href="{{ settings.telegram_url }}" class="text-gray-400 hover:text-white transition">
               <i class="fab fa-telegram"></i>
             </a>
@@ -137,28 +93,22 @@
       <div>
         <h3 class="text-lg font-medium mb-4">Contato</h3>
         <ul class="space-y-2">
-            {% if settings.contact_address %}
+            {% if settings.contact_address != blank %}
             <li class="flex items-start">
             <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-400"></i>
             <span class="text-gray-400">{{ settings.contact_address }}</span>
             </li>
             {% endif %}
-            {% if settings.contact_phone %}
+            {% if settings.contact_phone != blank %}
             <li class="flex items-center">
             <i class="fas fa-phone-alt mr-3 text-gray-400"></i>
             <span class="text-gray-400">{{ settings.contact_phone }}</span>
             </li>
             {% endif %}
-            {% if settings.contact_email %}
+            {% if settings.contact_email != blank %}
             <li class="flex items-center">
             <i class="fas fa-envelope mr-3 text-gray-400"></i>
             <span class="text-gray-400">{{ settings.contact_email }}</span>
-            </li>
-            {% endif %}
-            {% if settings.contact_whatsapp %}
-            <li class="flex items-center">
-            <i class="fab fa-whatsapp mr-3 text-gray-400"></i>
-            <span class="text-gray-400">{{ settings.contact_whatsapp }}</span>
             </li>
             {% endif %}
         </ul>

@@ -9,7 +9,11 @@
         <!-- Logo -->
         <div class="flex-1 lg:flex-none text-center lg:text-left">
             <a href="/" class="text-2xl font-bold tracking-tighter">
+               {% if settings.store_logo %}
+                <img src="{{ settings.store_logo | img_url: '200x' }}" alt="{{ settings.store_name }}" class="inline-block h-8">
+               {% else %}
                 <span class="text-black">Doggy</span><span class="text-gray-600">Shine</span>
+               {% endif %}
             </a>
         </div>
         

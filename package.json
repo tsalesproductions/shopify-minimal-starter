@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "gulp",
     "build": "gulp styles && gulp scripts && gulp images",
+    "tailwind": "npx @tailwindcss/cli -i ./src/tailwind-input.css -o ./assets/tailwind.min.css --minify",
     "lint": "gulp lintSass && gulp lintJs",
     "serve": "gulp serve"
   },
@@ -26,6 +27,7 @@
     "tailwindcss": "^4.1.11"
   },
   "dependencies": {
+    "@tailwindcss/cli": "^4.1.11",
     "gulp-rename": "^2.1.0",
     "stylelint": "^13.13.1"
   }

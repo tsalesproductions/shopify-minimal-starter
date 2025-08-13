@@ -189,6 +189,13 @@
         "info": "Insira o email para contato da loja"
       },
       {
+        "type": "text",
+        "id": "store_description",
+        "label": "Descrição da loja",
+        "info": "Insira uma breve descrição da loja",
+        "default": "Acessórios premium que combinam estilo, conforto e tecnologia para o melhor amigo do homem."
+      },
+      {
         "type": "header",
         "content": "Telefone"
       },
