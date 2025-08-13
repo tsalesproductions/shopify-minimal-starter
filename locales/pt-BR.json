@@ -1,8 +1,17 @@
 {
   "general": {
-    "accessibility": {
-      "skip_to_content": "Pular para o conteúdo"
-    }
+  "404": "Página não encontrada",
+  "search": "Buscar",
+  "cart": "Carrinho",
+  "home": "Início",
+  "pagination": {
+      "previous": "Anterior",
+      "next": "Próximo",
+      "page": "Página {{ number }}"
+  },
+  "accessibility": {
+    "skip_to_content": "Pular para o conteúdo"
+  },
   },
   "products": {
     "facets": {
@@ -116,11 +125,12 @@
         "no_matches": "Nenhum produto encontrado"
     }
   },
-  "general": {
-    "pagination": {
-        "previous": "Anterior",
-        "next": "Próxima",
-        "page": "Página {{ number }}"
+  "templates": {
+    "contact": {
+      "form": {
+        "post_success": "Obrigado por entrar em contato. Retornaremos o mais breve possível.",
+        "error_heading": "Por favor, corrija os seguintes erros:"
+      }
     }
   }
 }

@@ -68,21 +68,22 @@
 
         <!-- Category Pills -->
         <div class="flex flex-wrap gap-2 mb-6 overflow-x-auto pb-2">
-          <button class="category-pill px-4 py-2 rounded-full border border-gray-300 text-sm font-medium hover:bg-gray-100 active whitespace-nowrap">
+          <button class="category-pill px-4 py-2 rounded-full border border-gray-300 text-sm font-medium hover:bg-gray-100 {% if collection.handle == blank %}active{% endif %} whitespace-nowrap">
             Todos
           </button>
-          <button class="category-pill px-4 py-2 rounded-full border border-gray-300 text-sm font-medium hover:bg-gray-100 whitespace-nowrap">
-            Coleiras Inteligentes
-          </button>
-          <button class="category-pill px-4 py-2 rounded-full border border-gray-300 text-sm font-medium hover:bg-gray-100 whitespace-nowrap">
-            Guias Retráteis
-          </button>
-          <button class="category-pill px-4 py-2 rounded-full border border-gray-300 text-sm font-medium hover:bg-gray-100 whitespace-nowrap">
-            Coleiras de Couro
-          </button>
-          <button class="category-pill px-4 py-2 rounded-full border border-gray-300 text-sm font-medium hover:bg-gray-100 whitespace-nowrap">
-            Coleiras Personalizadas
-          </button>
+            {% assign recomendadas = collection.metafields.custom.colecoes_recomendadas.value %}
+            {% if recomendadas %}
+            {% for col in recomendadas %}
+              {% if col %}
+              <button
+                class="category-pill px-4 py-2 rounded-full border border-gray-300 text-sm font-medium hover:bg-gray-100 {% if col.handle == collection.handle %}active{% endif %} whitespace-nowrap"
+                onclick="window.location='{{ col.url }}'"
+              >
+                {{ col.title }}
+              </button>
+              {% endif %}
+            {% endfor %}
+            {% endif %}
         </div>
 
         <!-- Sort and View Options -->

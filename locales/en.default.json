@@ -3,7 +3,15 @@
     "404": "Page not found",
     "search": "Search",
     "cart": "Cart",
-    "home": "Home"
+    "home": "Home",
+    "pagination": {
+        "previous": "Previous",
+        "next": "Next",
+        "page": "Page {{ number }}"
+    },
+    "accessibility": {
+      "skip_to_content": "Pular para o conteúdo"
+    },
   },
   "customer": {
     "account": {
@@ -117,11 +125,12 @@
       "sale": "Sale"
     }
   },
-  "general": {
-    "pagination": {
-        "previous": "Previous",
-        "next": "Next",
-        "page": "Page {{ number }}"
+  "templates": {
+    "contact": {
+      "form": {
+        "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
+        "error_heading": "Please correct the following errors:"
+      }
     }
   }
 }
