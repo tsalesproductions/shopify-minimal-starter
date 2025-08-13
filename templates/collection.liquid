@@ -1,10 +1,119 @@
-<main>
-  <h2>{{ collection.title }}</h2>
-  <ul>
-    {% for product in collection.products %}
-      <li>
-        <a href="{{ product.url }}">{{ product.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-</main> 
+{% render 'breadcrumb' %}
+
+<!-- Main Content -->
+{% paginate collection.products by 24 %}
+  <main class="container mx-auto px-4 py-8 collection-list">
+    <div class="flex flex-col md:flex-row gap-8">
+      <!-- Mobile Filter Button -->
+      <div class="md:hidden w-full mb-4">
+        <button
+          id="filter-button"
+          class="w-full bg-black text-white py-3 px-4 rounded-md flex justify-between items-center"
+        >
+          <span class="flex items-center">
+            <i class="fas fa-filter mr-2"></i>
+            Filtros e Categorias
+          </span>
+          <i class="fas fa-chevron-down" id="filter-icon"></i>
+        </button>
+      </div>
+
+      <!-- Overlay for mobile -->
+      <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 md:hidden opacity-0 invisible"></div>
+
+      <!-- Sidebar -->
+      <div
+        id="sidebar-container"
+        class="sidebar-container fixed md:relative inset-y-0 left-0 w-4/5 md:w-1/4 bg-white z-30 md:z-auto shadow-lg md:shadow-sm transform hidden-sidebar md:transform-none overflow-y-auto h-screen md:h-auto"
+      >
+        <div class="p-6 sticky top-0">
+          <!-- Mobile Close Button -->
+          <div class="flex justify-between items-center mb-6 md:hidden">
+            <h2 class="text-xl font-bold">Filtros</h2>
+            <button id="close-sidebar" class="text-gray-500 hover:text-black">
+              <i class="fas fa-times text-xl"></i>
+            </button>
+          </div>
+
+          <h2 class="text-xl font-bold mb-4 pb-2 border-b">Categorias</h2>
+          <ul class="space-y-2">
+            {% for c in collections %}
+              {% if c.all_products_count > 0 %}
+                <li>
+                  <a
+                    href="{{ c.url }}"
+                    class="category-btn w-full text-left py-2 px-3 rounded-md hover:bg-gray-100 flex justify-between items-center {% if c.handle == collection.handle %}active{% endif %}"
+                    data-category="{{ c.handle }}"
+                  >
+                    <span>{{ c.title }}</span>
+                    <span class="text-gray-500 text-sm">({{ c.all_products_count }})</span>
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+
+          <h2 class="text-xl font-bold mt-8 mb-4 pb-2 border-b">Filtros</h2>
+          {% render 'collection-filters', filters: collection.filters, section_id: 'collection' %}
+        </div>
+      </div>
+
+      <div class="w-full md:w-3/4">
+        <div class="mb-6">
+          <h1 class="text-2xl font-bold mb-2" id="category-title">{{ collection.title }}</h1>
+          {% if collection.description != blank %}
+            <div class="text-gray-600 prose" id="category-description">{{ collection.description }}</div>
+          {% endif %}
+        </div>
+
+        <!-- Category Pills -->
+        <div class="flex flex-wrap gap-2 mb-6 overflow-x-auto pb-2">
+          <button class="category-pill px-4 py-2 rounded-full border border-gray-300 text-sm font-medium hover:bg-gray-100 active whitespace-nowrap">
+            Todos
+          </button>
+          <button class="category-pill px-4 py-2 rounded-full border border-gray-300 text-sm font-medium hover:bg-gray-100 whitespace-nowrap">
+            Coleiras Inteligentes
+          </button>
+          <button class="category-pill px-4 py-2 rounded-full border border-gray-300 text-sm font-medium hover:bg-gray-100 whitespace-nowrap">
+            Guias Retráteis
+          </button>
+          <button class="category-pill px-4 py-2 rounded-full border border-gray-300 text-sm font-medium hover:bg-gray-100 whitespace-nowrap">
+            Coleiras de Couro
+          </button>
+          <button class="category-pill px-4 py-2 rounded-full border border-gray-300 text-sm font-medium hover:bg-gray-100 whitespace-nowrap">
+            Coleiras Personalizadas
+          </button>
+        </div>
+
+        <!-- Sort and View Options -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 pb-4 border-b">
+          <p class="text-gray-600 mb-2 sm:mb-0">
+            Mostrando <span class="font-medium">{{ collection.products_count }}</span> de
+            <span class="font-medium">{{ collection.all_products_count }}</span> produtos
+          </p>
+          <div class="flex items-center space-x-4">
+            {% render 'collection-sort', sort_options: collection.sort_options, current_sort_by: collection.sort_by %}
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6" id="products-grid">
+          {%- for product in collection.products -%}
+            {% render 'product-card', product: product, collection: collection %}
+          {%- else -%}
+            <div class="col-span-full text-center py-12">
+              <p>Nenhum produto encontrado nesta coleção.</p>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        <!-- Pagination -->
+        {%- if paginate.pages > 1 -%}
+          <div class="mt-10 flex justify-center">
+            {% render 'pagination', paginate: paginate %}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </main>
+{% endpaginate %}

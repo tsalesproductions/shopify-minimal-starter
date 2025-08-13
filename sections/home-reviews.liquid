@@ -1,0 +1,102 @@
+<!-- Customer Reviews -->
+<section class="py-10 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-2xl font-bold mb-6">{{ section.settings.title }}</h2>
+
+    <div class="carousel-container relative">
+      <button class="carousel-nav-button prev" id="reviews-prev">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <div class="reviews-carousel flex space-x-4 overflow-x-auto pb-4 px-6">
+        {% for block in section.blocks %}
+          <div class="flex-shrink-0 w-72 md:w-80 bg-gray-50 p-6 rounded-lg">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mr-3">
+                <i class="fas fa-user text-gray-400"></i>
+              </div>
+              <div>
+                <h4 class="font-medium">{{ block.settings.customer_name }}</h4>
+                <div class="flex text-yellow-400">
+                  {% assign rating_int = block.settings.rating | plus: 0 %}
+                  {% for i in (1..5) %}
+                    <i class="fas fa-star{% if i > rating_int %}-o{% endif %}"></i>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600">"{{ block.settings.review_text }}"</p>
+          </div>
+        {% endfor %}
+      </div>
+
+      <button class="carousel-nav-button next" id="reviews-next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Home Reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título da Seção",
+      "default": "O que nossos clientes dizem"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "text",
+          "id": "customer_name",
+          "label": "Nome do Cliente"
+        },
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Texto da Avaliação"
+        },
+        {
+          "type": "select",
+          "id": "rating",
+          "label": "Avaliação (Estrelas)",
+          "options": [
+            { "value": "1", "label": "1 Estrela" },
+            { "value": "2", "label": "2 Estrelas" },
+            { "value": "3", "label": "3 Estrelas" },
+            { "value": "4", "label": "4 Estrelas" },
+            { "value": "5", "label": "5 Estrelas" }
+          ],
+          "default": "5"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Reviews",
+      "category": "Seções",
+      "settings": {
+        "title": "O que nossos clientes dizem"
+      },
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "customer_name": "Cliente Exemplo",
+            "review_text": "Produto excelente! Recomendo a todos.",
+            "rating": "5"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,131 @@
+{% schema %}
+{
+  "name": "Categorias do Carrossel",
+  "tag": "section",
+  "class": "CategoriesCarousel",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título do Carrossel",
+      "default": "Categorias"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Categoria",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Nome da Categoria",
+          "default": "Categoria"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link da Categoria"
+        },
+        {
+          "type": "select",
+          "id": "categories",
+          "label": "Categorias",
+          "options": [
+            {
+              "label": "Bandanas",
+              "value": "dog"
+            },
+            {
+              "label": "Coleiras",
+              "value": "link"
+            },
+            {
+              "label": "Guias",
+              "value": "route"
+            },
+            {
+              "label": "Brinquedos",
+              "value": "baseball-ball"
+            },
+            {
+              "label": "Cuidados",
+              "value": "shower"
+            },
+            {
+              "label": "Box",
+              "value": "box"
+            },
+            {
+              "label": "Assinaturas",
+              "value": "crown"
+            },
+            {
+              "label": "Membros",
+              "value": "user-friends"
+            },
+            {
+              "label": "Gravatas",
+              "value": "user-tie"
+            },
+            {
+              "label": "Lacinhos",
+              "value": "ribbon"
+            },
+            {
+              "label": "Temáticos",
+              "value": "calendar-alt"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Categorias do Carrossel",
+      "category": "Seções"
+    }
+  ]
+}
+{% endschema %}
+
+<!-- Categories Carousel -->
+<section class="py-10 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-2xl font-bold mb-6">
+      {{ section.settings.title }}
+    </h2>
+
+    <div class="carousel-container relative">
+      <button class="carousel-nav-button prev" id="category-prev">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <div class="category-carousel flex space-x-4 overflow-x-auto pb-4 px-6">
+        {% for block in section.blocks %}
+          <div class="category-item flex-shrink-0">
+            <a href="{{ block.settings.link }}">
+              <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gray-100 flex items-center justify-center shadow-sm">
+                <i class="fas fa-{{ block.settings.categories }} text-2xl text-gray-600"></i>
+              </div>
+              <p class="text-center text-sm mt-2">
+                {% assign category_label = '' %}
+                {% for option in block.type.settings[0].options %}
+                  {% if option.value == block.settings.categories %}
+                    {% assign category_label = option.label %}
+                  {% endif %}
+                {% endfor %}
+                {{ category_label }}
+              </p>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+
+      <button class="carousel-nav-button next" id="category-next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</section>

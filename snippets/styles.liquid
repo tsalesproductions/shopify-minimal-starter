@@ -1,4 +1,26 @@
 {%- comment -%}
   Inclusão de folhas de estilo principais
 {%- endcomment -%}
-<link rel="stylesheet" href="{{ 'main.css' | asset_url }}"> 
+<script src="https://cdn.tailwindcss.com" defer></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="{{ 'slick.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'slick-theme.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'store.min.css' | asset_url }}">
+
+<style>
+  :root{
+    --pix-discount-icon-color: {{settings.pix_discount_color | default: '#00BFA5'}};
+    --cc-discount-icon-color: {{settings.credit_card_icon_color | default: '#000'}};
+
+    --wpp-btn-color: #3cc13f;
+    --wpp-btn-bg: #eefbef;
+    --wpp-btn-border: #3cc13f;
+    --wpp-btn-radius: 6px;
+
+    --arrows-dots-bg: rgba(0, 0, 0, 0.7);
+    --arrows-dots-bg-hover: rgba(0, 0, 0, 0.9);
+    --arrows-dots-default-bg: #ccc;
+    --arrows-dots-inactive-bg: #888;
+    --arrows-dots-active-bg: #000;
+  }
+</style>

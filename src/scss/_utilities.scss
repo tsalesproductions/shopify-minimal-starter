@@ -1,4 +1,7 @@
+
+
 // Utilidades e helpers
+
 .hide {
   display: none !important;
 }
@@ -9,4 +12,153 @@
 
 .text-center {
   text-align: center !important;
-} 
+}
+
+
+[data-loading-white] {
+  @include loader(white);
+}
+
+[data-loading] {
+  @include loader();
+}
+
+.product__prices {
+  .product__price {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.125rem;
+    /* 18px */
+    font-weight: 600;
+    color: #000;
+
+    span {
+      font-size: 0.8125rem;
+      /* 13px */
+      font-weight: 400;
+    }
+
+  }
+
+  .payment-pix,
+  .payment-installments {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 0px;
+    font-size: 12px;
+    gap: 5px;
+
+    svg {
+      width: 17px;
+      height: 17px;
+    }
+  }
+
+  .pix-icon {
+    width: 17px;
+    height: 17px;
+  }
+
+  .payment-pix svg,
+  .pix-icon {
+    fill: var(--pix-discount-icon-color);
+  }
+
+  .payment-installments svg {
+    fill: var(--cc-discount-icon-color);
+  }
+}
+
+.wpp-float {
+  position: fixed;
+  z-index: 9999;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #209142;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.left {
+    left: 20px;
+    bottom: 20px;
+  }
+
+  &.right {
+    right: 20px;
+    bottom: 20px;
+  }
+
+  -webkit-animation: pulse 3s infinite;
+  -moz-animation: pulse 3s infinite;
+  -o-animation: pulse 3s infinite;
+  animation: pulse 3s infinite;
+
+  svg {
+    width: 30px;
+    height: 30px;
+    fill: #fff;
+  }
+}
+
+.wpp-btn {
+  position: relative;
+  right: 0;
+  opacity: 1;
+  border-radius: var(--wpp-btn-radius);
+  overflow: visible;
+  text-shadow: none;
+  margin-top: 4px;
+  padding: 0;
+  width: 100%;
+  height: 36px;
+  line-height: 36px;
+  font-size: 0.725rem;
+  text-align: center;
+  color: var(--wpp-btn-color);
+  background: var(--wpp-btn-bg);
+  letter-spacing: 0.2px;
+  z-index: 102;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--wpp-btn-border);
+  font-weight: 600;
+
+  svg {
+    width: 16px;
+    height: 18px;
+    margin-right: 6px;
+    position: relative;
+    fill: var(--wpp-btn-color);
+  }
+}
+
+.preloader{
+  &:not(.show){
+    display: none;
+  }
+  &.show{
+    position: fixed;
+    background-color: rgb(249, 250, 251, var(--tw-bg-opacity, 1));
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 999;
+
+    svg{
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      fill: var(--preloader-color, #000);
+      animation: spinner-rotate 1s infinite linear;
+    }
+  }
+}

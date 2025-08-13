@@ -1,18 +1,93 @@
-<div>
-  <h3>Seu carrinho</h3>
-  {% if cart.item_count > 0 %}
-    <ul>
-      {% for item in cart.items %}
-        <li>{{ item.product.title }} x {{ item.quantity }}<br><small>{{ item.line_price | money }}</small></li>
-      {% endfor %}
-    </ul>
-    <p><strong>Total:</strong> {{ cart.total_price | money }}</p>
-    <a href="/cart" style="display:inline-block; margin-top:8px;">Ir para o carrinho</a>
-    <form action="/cart" method="post" style="display:inline-block; margin-top:8px;">
-      <button type="submit" name="checkout">Finalizar compra</button>
-    </form>
-  {% else %}
-    <p>Seu carrinho está vazio.</p>
-  {% endif %}
-  <button onclick="document.getElementById('minicart').style.display='none'" style="margin-top:8px;">Fechar</button>
-</div> 
+<div class="flex justify-between items-center mb-6">
+  <h2 class="text-xl font-bold">Seu Carrinho</h2>
+  <button id="close-cart" class="text-black">
+    <i class="fas fa-times text-xl"></i>
+  </button>
+</div>
+
+<div class="flex-1 overflow-y-auto">
+  <!-- Cart items -->
+  <div class="space-y-4">
+    {% for item in cart.items %}
+    <div class="flex items-center space-x-4 pb-4 border-b border-gray-200 cart-item">
+      <div class="h-16 w-16 bg-gray-100 rounded-md flex items-center justify-center">
+        <img src="{{ item.image | img_url: '160x160' }}" alt="{{ item.product.title }}" class="h-12 w-12 object-contain" />
+      </div>
+      <div class="flex-1">
+        <h4 class="font-medium">{{ item.product.title }}</h4>
+        {% if item.variant.title != 'Default Title' %}
+        <p class="text-sm text-gray-500">{{ item.variant.title }}</p>
+        {% endif %}
+        <div class="flex items-center mt-1">
+          <form method="post" action="/cart/change" class="inline" data-ajax-cart>
+            <input type="hidden" name="id" value="{{ item.key }}">
+            <input type="hidden" name="quantity" value="{{ item.quantity | minus: 1 }}">
+            <button type="submit" class="text-xs bg-gray-200 px-2 py-1 rounded" {% if item.quantity <= 1 %}disabled{% endif %}>-</button>
+          </form>
+          <span class="mx-2 text-sm total-qtd">{{ item.quantity }}</span>
+          <form method="post" action="/cart/change" class="inline" data-ajax-cart>
+            <input type="hidden" name="id" value="{{ item.key }}">
+            <input type="hidden" name="quantity" value="{{ item.quantity | plus: 1 }}">
+            <button type="submit" class="text-xs bg-gray-200 px-2 py-1 rounded">+</button>
+          </form>
+        </div>
+      </div>
+      <div class="text-right">
+        <p class="font-medium">{{ item.line_price | money }}</p>
+        <form method="post" action="/cart/change" data-ajax-cart>
+          <input type="hidden" name="id" value="{{ item.key }}">
+          <input type="hidden" name="quantity" value="0">
+          <button type="submit" class="text-xs text-gray-500 mt-1" data-loading>Remover</button>
+        </form>
+      </div>
+    </div>
+    {% endfor %}
+    {% if cart.item_count == 0 %}
+    <p class="text-center text-gray-500 py-8">Seu carrinho está vazio.</p>
+    {% endif %}
+  </div>
+
+  <!-- Free gift promo -->
+  {% assign free_gift_threshold = 25000 %}
+  {% assign amount_left = free_gift_threshold | minus: cart.total_price %}
+  <div class="mt-6 bg-gray-50 p-4 rounded-lg">
+    <div class="flex items-center">
+      <div class="mr-3 text-xl">🎁</div>
+      <div>
+        <h4 class="font-medium">Brinde Grátis!</h4>
+        {% if amount_left > 0 %}
+        <p class="text-sm text-gray-500">Adicione {{ amount_left | money }} para ganhar um brinde exclusivo</p>
+        {% else %}
+        <p class="text-sm text-green-600">Você ganhou um brinde exclusivo!</p>
+        {% endif %}
+        <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+          {% assign progress = 100 | times: cart.total_price | divided_by: free_gift_threshold %}
+          <div class="bg-black h-2 rounded-full" style="width: {{ progress | at_most: 100 }}%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Cart summary -->
+<div class="mt-6 pt-4 border-t border-gray-200">
+  <div class="flex justify-between mb-2">
+    <span class="text-gray-600">Subtotal</span>
+    <span class="font-medium">{{ cart.total_price | money }}</span>
+  </div>
+  <div class="flex justify-between mb-4">
+    <span class="text-gray-600">Frete</span>
+    <span class="font-medium text-green-600">Calculado no checkout</span>
+  </div>
+  <div class="flex justify-between text-lg font-bold mb-6">
+    <span>Total</span>
+    <span>{{ cart.total_price | money }}</span>
+  </div>
+
+  <a href="/checkout" class="block w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition text-center">
+    Finalizar Compra
+  </a>
+  <a href="/collections/all" class="block w-full border border-black text-black py-3 rounded-lg mt-3 hover:bg-gray-100 transition text-center">
+    Continuar Comprando
+  </a>
+</div>

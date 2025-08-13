@@ -1,0 +1,32 @@
+{%- liquid
+  assign sort_by = current_sort_by | default: 'manual'
+-%}
+
+<div class="collection-sort flex items-center">
+  <label for="SortBy" class="mr-2 text-sm shrink-0">{{ 'products.facets.sort_by_label' | t }}:</label>
+  <div class="relative">
+    <select name="sort_by" id="SortBy" class="border rounded-md pl-2 pr-8 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-black appearance-none" aria-describedby="a11y-refresh-page-message">
+      {%- for option in sort_options -%}
+        <option value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>
+          {{ option.name | escape }}
+        </option>
+      {%- endfor -%}
+    </select>
+    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sortBySelect = document.getElementById('SortBy');
+    if (sortBySelect) {
+      sortBySelect.addEventListener('change', function() {
+        const url = new URL(window.location.href);
+        url.searchParams.set('sort_by', this.value);
+        window.location = url.href;
+      });
+    }
+  });
+</script>

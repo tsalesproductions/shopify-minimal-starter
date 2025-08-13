@@ -10,15 +10,23 @@
     "serve": "gulp serve"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "browser-sync": "^2.29.3",
     "gulp": "^4.0.2",
-    "gulp-sass": "^5.1.0",
-    "sass": "^1.69.5",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
-    "gulp-uglify": "^3.0.2",
     "gulp-eslint": "^6.0.0",
-    "gulp-stylelint": "^13.0.0",
     "gulp-imagemin": "^7.1.0",
-    "browser-sync": "^2.29.3"
+    "gulp-postcss": "^10.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-stylelint": "^13.0.0",
+    "gulp-uglify": "^3.0.2",
+    "postcss": "^8.5.6",
+    "sass": "^1.69.5",
+    "tailwindcss": "^4.1.11"
+  },
+  "dependencies": {
+    "gulp-rename": "^2.1.0",
+    "stylelint": "^13.13.1"
   }
-} 
+}

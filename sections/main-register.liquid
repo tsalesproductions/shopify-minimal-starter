@@ -1,0 +1,40 @@
+<div class="max-w-md mx-auto py-12 px-4">
+  <h1 class="text-2xl font-bold text-center mb-6">{{ 'customer.register.title' | t }}</h1>
+
+  {%- form 'create_customer', class: 'register' -%}
+    {%- if form.errors -%}
+      <div class="mb-4">
+        {{ form.errors | default_errors }}
+      </div>
+    {%- endif -%}
+
+    <div class="mb-4">
+      <label for="first_name">{{ 'customer.register.first_name' | t }}</label>
+      <input type="text" name="customer[first_name]" id="first_name" class="mt-1 block w-full">
+    </div>
+
+    <div class="mb-4">
+      <label for="last_name">{{ 'customer.register.last_name' | t }}</label>
+      <input type="text" name="customer[last_name]" id="last_name" class="mt-1 block w-full">
+    </div>
+
+    <div class="mb-4">
+      <label for="email">{{ 'customer.register.email' | t }}</label>
+      <input type="email" name="customer[email]" id="email" class="mt-1 block w-full" autocapitalize="off" autocorrect="off">
+    </div>
+
+    <div class="mb-4">
+      <label for="password">{{ 'customer.register.password' | t }}</label>
+      <input type="password" name="customer[password]" id="password" class="mt-1 block w-full">
+    </div>
+
+    <button type="submit" class="w-full btn btn--primary">{{ 'customer.register.create' | t }}</button>
+  {%- endform -%}
+</div>
+
+{% schema %}
+{
+  "name": "Main Register",
+  "settings": []
+}
+{% endschema %}

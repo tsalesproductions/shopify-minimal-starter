@@ -1,16 +1,115 @@
-<main>
-  <h2>Buscar</h2>
-  <form action="/search" method="get">
-    <input type="search" name="q" value="{{ search.terms }}" placeholder="Buscar produtos...">
-    <button type="submit">Buscar</button>
-  </form>
-  {% if search.results_count > 0 %}
-    <ul>
-      {% for item in search.results %}
-        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>Nenhum resultado encontrado.</p>
-  {% endif %}
-</main> 
+{% comment %}
+  Página de busca com layout de grade de produtos e filtros, similar à página de coleção.
+{% endcomment %}
+
+<div class="container mx-auto px-4 pt-8">
+  <div class="max-w-2xl mx-auto mb-8 text-center">
+    <h1 class="text-3xl font-bold">Buscar em nossa loja</h1>
+    <form action="{{ routes.search_url }}" method="get" role="search" class="mt-4">
+      <div class="relative">
+        <input
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}"
+          placeholder="O que você procura?"
+          class="w-full p-3 pr-12 border rounded-md focus:ring-2 focus:ring-black focus:border-black"
+        >
+        <button type="submit" class="absolute top-0 right-0 h-full px-4 text-gray-500 hover:text-black">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% paginate search.results by 24 %}
+  <main class="container mx-auto px-4 pb-8 collection-list">
+    <div class="flex flex-col md:flex-row gap-8">
+      <!-- Mobile Filter Button -->
+      <div class="md:hidden w-full mb-4">
+        <button
+          id="filter-button"
+          class="w-full bg-black text-white py-3 px-4 rounded-md flex justify-between items-center"
+        >
+          <span class="flex items-center">
+            <i class="fas fa-filter mr-2"></i>
+            Filtros e Categorias
+          </span>
+          <i class="fas fa-chevron-down" id="filter-icon"></i>
+        </button>
+      </div>
+
+      <!-- Overlay for mobile -->
+      <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 md:hidden opacity-0 invisible"></div>
+
+      <!-- Sidebar -->
+      <div
+        id="sidebar-container"
+        class="sidebar-container fixed md:relative inset-y-0 left-0 w-4/5 md:w-1/4 bg-white z-30 md:z-auto shadow-lg md:shadow-sm transform hidden-sidebar md:transform-none overflow-y-auto h-screen md:h-auto"
+      >
+        <div class="p-6 sticky top-0">
+          <!-- Mobile Close Button -->
+          <div class="flex justify-between items-center mb-6 md:hidden">
+            <h2 class="text-xl font-bold">Filtros</h2>
+            <button id="close-sidebar" class="text-gray-500 hover:text-black">
+              <i class="fas fa-times text-xl"></i>
+            </button>
+          </div>
+
+          {% if search.filters.size > 0 %}
+            <h2 class="text-xl font-bold mt-8 mb-4 pb-2 border-b">Filtros</h2>
+            {% render 'collection-filters', filters: search.filters, section_id: 'search' %}
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="w-full md:w-3/4">
+        <div class="mb-6">
+          <h1 class="text-2xl font-bold mb-2" id="category-title">
+            {% if search.performed %}
+              Resultados para "{{ search.terms | escape }}"
+            {% else %}
+              Busca
+            {% endif %}
+          </h1>
+        </div>
+
+        <!-- Sort and View Options -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 pb-4 border-b">
+          <p class="text-gray-600 mb-2 sm:mb-0">
+            {% if search.results_count > 0 %}
+              Mostrando {{ search.results.size }} de {{ search.results_count }} resultados
+            {% endif %}
+          </p>
+          <div class="flex items-center space-x-4">
+            {% render 'collection-sort', sort_options: search.sort_options, current_sort_by: search.sort_by %}
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6" id="products-grid">
+          {%- if search.results_count > 0 -%}
+            {%- for item in search.results -%}
+              {%- if item.object_type == 'product' -%}
+                {%- assign product = item -%}
+                {% render 'product-card', product: product %}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- else -%}
+            <div class="col-span-full text-center py-12">
+              <p>Nenhum resultado encontrado para "{{ search.terms | escape }}".</p>
+              <p>Tente uma busca diferente ou explore nossas categorias.</p>
+            </div>
+          {%- endif -%}
+        </div>
+
+        <!-- Pagination -->
+        {%- if paginate.pages > 1 -%}
+          <div class="mt-10 flex justify-center">
+            {% render 'pagination', paginate: paginate %}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </main>
+{% endpaginate %}

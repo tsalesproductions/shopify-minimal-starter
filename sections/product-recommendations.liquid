@@ -1,0 +1,46 @@
+{%- if recommendations.performed and recommendations.products_to_show -%}
+  <section class="mt-12">
+    <h2 class="text-2xl font-bold mb-6">{{ section.settings.heading | escape }}</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {%- for product in recommendations.products -%}
+        <div class="bg-white rounded-lg shadow-sm p-4">
+          <a href="{{ product.url }}">
+            <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg">
+              {{ product.featured_image | image_url: width: 300 | image_tag:
+                loading: 'lazy',
+                width: 300,
+                height: 300,
+                class: 'w-full h-full object-cover'
+              }}
+            </div>
+            <h3 class="mt-4 text-sm text-gray-700">{{ product.title }}</h3>
+            <p class="mt-1 text-lg font-medium text-gray-900">{{ product.price | money }}</p>
+          </a>
+        </div>
+      {%- endfor -%}
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Product recommendations",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "You may also like"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "default": 4,
+      "label": "Maximum products to show"
+    }
+  ]
+}
+{% endschema %}

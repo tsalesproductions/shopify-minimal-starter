@@ -1,0 +1,60 @@
+{%- comment -%}
+  This is a simplified version of collection filters.
+  It's meant to be a starting point and can be extended to include more filter types and features.
+{%- endcomment -%}
+
+<div class="collection-filters" id="main-collection-filters" data-id="{{ section_id }}">
+  <form id="CollectionFiltersForm" class="flex flex-col gap-6">
+
+    {%- for filter in filters -%}
+      {%- case filter.type -%}
+      {%- when 'list' -%}
+        <div class="filter-group">
+          <h3 class="font-semibold mb-2">{{ filter.label | escape }}</h3>
+          <ul class="space-y-2">
+            {%- for value in filter.values -%}
+              <li class="flex items-center">
+                <input type="checkbox"
+                  name="{{ value.param_name }}"
+                  value="{{ value.value }}"
+                  id="Filter-{{ filter.label | handleize }}-{{ forloop.index }}"
+                  class="form-checkbox rounded text-black"
+                  {% if value.active %}checked{% endif %}
+                >
+                <label for="Filter-{{ filter.label | handleize }}-{{ forloop.index }}" class="ml-2 text-sm">{{ value.label | escape }} ({{ value.count }})</label>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- when 'price_range' -%}
+        <div class="filter-group">
+          <h3 class="font-semibold mb-2">{{ filter.label | escape }}</h3>
+          <div class="flex items-center gap-2">
+            <span class="text-sm">R$</span>
+            <input
+              name="{{ filter.min_value.param_name }}"
+              id="Filter-{{ filter.label | handleize }}-min"
+              type="number"
+              placeholder="De"
+              class="w-full border-gray-300 rounded-md shadow-sm text-sm"
+              value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+            >
+            <span class="text-sm">R$</span>
+            <input
+              name="{{ filter.max_value.param_name }}"
+              id="Filter-{{ filter.label | handleize }}-max"
+              type="number"
+              placeholder="Até"
+              class="w-full border-gray-300 rounded-md shadow-sm text-sm"
+              value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+            >
+          </div>
+        </div>
+      {%- endcase -%}
+    {%- endfor -%}
+
+    <button type="submit" class="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800 transition">
+      Aplicar Filtros
+    </button>
+  </form>
+</div>

@@ -2,20 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page_title }}</title>
     {% render 'preloads' %}
     {% render 'styles' %}
     {{ content_for_header }}
   </head>
-  <body>
+  <body class="bg-white text-black">
+    {% render 'preloader' %}
+
+    {% section 'announcement-bar' %}
     {% section 'header' %}
     {{ content_for_layout }}
     {% section 'footer' %}
 
-    <div id="minicart" style="display:none; position:fixed; top:60px; right:20px; background:#fff; border:1px solid #ccc; padding:16px; z-index:1000; min-width:250px;">
-    {% render 'minicart' %}
-  </div>
-  <script src="{{ 'minicart.js' | asset_url }}" defer></script>
+    <!-- Components -->
+    {% render 'whatsapp-float', product: product %}
+    
   {% render 'scripts' %}
+    <script src="{{ 'collection-filters.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
   </body>
 </html> 

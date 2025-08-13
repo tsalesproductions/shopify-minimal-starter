@@ -1,0 +1,38 @@
+<!-- Product Description Tabs -->
+<div class="mt-12 product-tabs">
+    <div class="border-b border-gray-200">
+        <div class="flex overflow-x-auto">
+            {% if product.description %}
+                <button class="tab-button px-6 py-3 font-medium text-gray-800 " data-tab="description">Descrição</button>
+            {% endif %}
+            {% if product.metafields.custom.specifications %}
+                <button class="tab-button px-6 py-3 font-medium text-gray-500 hover:text-gray-800" data-tab="specifications">Especificações</button>
+            {% endif %}
+
+            <button class="tab-button px-6 py-3 font-medium text-gray-500 hover:text-gray-800" data-tab="reviews">Avaliações</button>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-lg shadow-sm p-6 mt-4">
+        {% if product.description %}
+        <!-- Description Tab -->
+        <div id="description-tab" class="tab-content">
+            {{  product.description }}
+        </div>
+        {% endif %}
+        
+        {% if product.metafields.specifications %}
+        <!-- Specifications Tab -->
+        <div id="specifications-tab" class="tab-content hidden">
+            {{ product.metafields.custom.specifications | metafield_text }}
+        </div>
+        {% endif %}
+        
+        <!-- Reviews Tab -->
+        <div id="reviews-tab" class="tab-content hidden">
+            <div id="shopify-product-reviews" data-id="{{product.id}}">
+                {{ product.metafields.spr.reviews }}
+            </div>
+        </div>
+    </div>
+</div>

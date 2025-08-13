@@ -1,0 +1,82 @@
+<!-- Newsletter -->
+<section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="max-w-xl mx-auto text-center">
+            <h2 class="text-2xl font-bold mb-4">{{ section.settings.title }}</h2>
+            <p class="text-gray-600 mb-6">{{ section.settings.description }}</p>
+            {% form 'customer', class: 'newsletter-form flex flex-col sm:flex-row space-y-3 sm:space-y-0' %}
+                <input type="hidden" name="contact[tags]" value="newsletter">
+                <input type="hidden" name="utf8" value="✓">
+                <input 
+                    type="email" 
+                    name="contact[email]" 
+                    placeholder="Seu melhor e-mail" 
+                    required 
+                    class="flex-1 px-4 py-3 rounded-l-lg sm:rounded-r-none border border-gray-300 focus:outline-none focus:ring-1 focus:ring-black focus:border-black"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    autocomplete="email"
+                    aria-required="true"
+                    {% if form.errors %}
+                        autofocus
+                        aria-invalid="true"
+                        aria-describedby="Newsletter-error--{{ section.id }}"
+                    {% elsif form.posted_successfully? %}
+                        aria-describedby="Newsletter-success--{{ section.id }}"
+                        style="display: none;"
+                    {% endif %}
+                >
+                <button 
+                    type="submit" 
+                    class="bg-black text-white px-6 py-3 rounded-lg sm:rounded-l-none hover:bg-gray-800 transition"
+                {% if form.posted_successfully? %}
+                    aria-describedby="Newsletter-success--{{ section.id }}"
+                    style="display: none;"
+                {% endif %}
+                >
+                    Assinar
+                </button>
+
+                {%- if form.posted_successfully? -%}
+                <div class="text-green-600 mt-4 text-center w-full">
+                    Obrigado por se inscrever!
+                </div>
+                {%- endif -%}
+
+                {%- if form.errors -%}
+                <div class="text-red-600 mt-4">
+                    {{- form.errors.translated_fields.email | capitalize }}
+                    {{ form.errors.messages.email -}}
+                </div>
+                {%- endif -%}
+            {% endform %}
+            <div id="newsletter-message" class="mt-4 text-sm"></div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter Home",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título da Seção",
+      "default": "Fique por dentro das novidades"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Descrição da Seção",
+      "default": "Assine nossa newsletter e receba ofertas exclusivas, lançamentos e dicas para o seu pet."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter Home",
+      "category": "Seções"
+    }
+  ]
+}
+{% endschema %}

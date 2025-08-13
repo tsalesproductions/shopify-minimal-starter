@@ -1,0 +1,85 @@
+.quantity {
+  display: flex;
+  align-items: center;
+  border: 0.1rem solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 0.5rem;
+}
+
+.quantity__button {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.quantity__button:hover {
+  opacity: 0.7;
+}
+
+.quantity__input {
+  width: 5rem;
+  text-align: center;
+  appearance: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
+.quantity__input::-webkit-outer-spin-button,
+.quantity__input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.quantity__input[type='number'] {
+  appearance: textfield;
+}
+
+.price-per-item__container {
+  margin-top: 1rem;
+}
+
+.price-per-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.variant-item__old-price {
+  color: var(--text-subdued);
+  text-decoration: line-through;
+}
+
+.volume-pricing {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 0.1rem solid var(--border-color);
+}
+
+.volume-pricing .list-unstyled {
+  margin: 1rem 0;
+}
+
+.volume-pricing li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+
+.show-more-item.hidden {
+  display: none;
+}
+
+.button-show-more {
+  display: block;
+  margin: 1rem 0;
+  text-decoration: underline;
+  cursor: pointer;
+}

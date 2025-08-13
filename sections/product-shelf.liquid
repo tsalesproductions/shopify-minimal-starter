@@ -1,0 +1,55 @@
+<!-- New Releases -->
+<section class="py-10 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-2xl font-bold">{{ section.settings.title }}</h2>
+      <a href="{{ section.settings.collection.url }}" class="text-sm font-medium flex items-center hover:underline">
+        Ver todos <i class="fas fa-chevron-right ml-1 text-xs"></i>
+      </a>
+    </div>
+
+    <div class="carousel-container relative">
+      <button class="carousel-nav-button prev" id="new-releases-prev">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <div class="product-carousel flex space-x-4 overflow-x-auto pb-4 px-6">
+        {% assign products = section.settings.collection.products %}
+        {% if products.size > 0 %}
+          {% for product in products %}
+            {% render 'product-card', product: product %}
+          {% endfor %}
+        {% endif %}
+      </div>
+
+      <button class="carousel-nav-button next" id="new-releases-next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Shelf",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Vitrine de Produtos"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Coleção"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Shelf",
+      "category": "Vitrine"
+    }
+  ]
+}
+{% endschema %}

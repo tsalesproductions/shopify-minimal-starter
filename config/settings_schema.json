@@ -6,6 +6,278 @@
         "type": "text",
         "id": "store_name",
         "label": "Nome da loja"
+      },
+      {
+        "type": "image_picker",
+        "id": "store_logo",
+        "label": "Logo da loja",
+        "info": "Selecione a imagem da logo da loja"
+      },
+      {
+        "type": "image_picker",
+        "id": "store_favicon",
+        "label": "Favicon da loja",
+        "info": "Selecione a imagem do favicon da loja"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_preloader",
+        "label": "Ativar preloader",
+        "default": false,
+        "info": "Ative para exibir um loading ao carregar as páginas"
+      }
+    ]
+  },
+  {
+    "name": "Configurações de pagamentos",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Configurações de parcelamento"
+      },
+      {
+        "type": "color",
+        "id": "credit_card_icon_color",
+        "label": "Cor do ícone do cartão de crédito",
+        "default": "#000000",
+        "info": "Selecione a cor do ícone do cartão de crédito exibido nas vitrines"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_installments",
+        "label": "Exibir parcelamento",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "installments_count",
+        "label": "Quantidade de parcelas sem juros",
+        "min": 1,
+        "max": 12,
+        "step": 1,
+        "default": 3,
+        "info": "Número de parcelas sem juros exibidas"
+      },
+
+      {
+        "type": "header",
+        "content": "Configurações de PIX"
+      },
+      {
+        "type": "checkbox",
+        "id": "highlight_pix_price",
+        "label": "Destacar preço com PIX nas vitrines",
+        "default": false,
+        "info": "Ative para destacar o preço com desconto PIX nas vitrines de produtos"
+      },
+      {
+        "type": "color",
+        "id": "pix_icon_color",
+        "label": "Cor do ícone do PIX",
+        "default": "#00BFA5",
+        "info": "Selecione a cor do ícone do PIX exibido nas vitrines"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_pix",
+        "label": "Exibir opção de pagamento PIX",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "pix_discount_percentage",
+        "label": "Porcentagem de desconto no PIX (%)",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 10,
+        "info": "Defina a porcentagem de desconto aplicada para pagamentos via PIX"
+      }
+    ]
+  },
+  {
+    "name": "Configurações das vitrines",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Configurações de exibição"
+      },
+      {
+        "type": "range",
+        "id": "products_desktop",
+        "label": "Quantidade no desktop",
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "default": 4
+      },
+      {
+          "type": "range",
+          "id": "products_mobile",
+          "label": "Quantidade no mobile",
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "default": 1
+      },
+    ]
+  },
+  {
+    "name": "Redes sociais",
+    "settings": [
+      {
+        "type": "text",
+        "id": "instagram_url",
+        "label": "URL do Instagram",
+        "info": "Insira o link para o perfil do Instagram da loja"
+      },
+      {
+        "type": "text",
+        "id": "facebook_url",
+        "label": "URL do Facebook",
+        "info": "Insira o link para a página do Facebook da loja"
+      },
+      {
+        "type": "text",
+        "id": "twitter_url",
+        "label": "URL do Twitter",
+        "info": "Insira o link para o perfil do Twitter da loja"
+      },
+      {
+        "type": "text",
+        "id": "pinterest_url",
+        "label": "URL do Pinterest",
+        "info": "Insira o link para o perfil do Pinterest da loja"
+      },
+      {
+        "type": "text",
+        "id": "youtube_url",
+        "label": "URL do YouTube",
+        "info": "Insira o link para o canal do YouTube da loja"
+      },
+      {
+        "type": "text",
+        "id": "tiktok_url",
+        "label": "URL do TikTok",
+        "info": "Insira o link para o perfil do TikTok da loja"
+      },
+      {
+        "type": "text",
+        "id": "linkedin_url",
+        "label": "URL do LinkedIn",
+        "info": "Insira o link para o perfil do LinkedIn da loja"
+      },
+      {
+        "type": "text",
+        "id": "telegram_url",
+        "label": "URL do Telegram",
+        "info": "Insira o link para o canal ou grupo do Telegram da loja"
+      }
+    ]
+  },
+  {
+    "name": "Configurações de contato",
+    "settings": [
+      {
+        "type": "header",
+        "content": "E-mail"
+      },
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "Email de contato",
+        "info": "Insira o email para contato da loja"
+      },
+      {
+        "type": "header",
+        "content": "Telefone"
+      },
+      {
+        "type": "text",
+        "id": "contact_phone",
+        "label": "Telefone de contato",
+        "info": "Insira o telefone para contato da loja"
+      },
+      {
+        "type": "header",
+        "content": "Endereço"
+      },
+      {
+        "type": "text",
+        "id": "contact_address",
+        "label": "Endereço de contato",
+        "info": "Insira o endereço físico da loja"
+      },
+      {
+        "type": "header",
+        "content": "Whatsapp"
+      },
+      {
+        "type": "text",
+        "id": "contact_whatsapp",
+        "label": "Número do WhatsApp",
+        "info": "Insira o número do WhatsApp para contato da loja"
+      },
+      {
+        "type": "header",
+        "content": "Whatsapp flutuante"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_floating_whatsapp",
+        "label": "Exibir WhatsApp flutuante",
+        "default": false,
+        "info": "Ative para exibir o botão flutuante do WhatsApp no site"
+      },
+      {
+        "type": "text",
+        "id": "floating_whatsapp_default_message",
+        "label": "Mensagem padrão do WhatsApp flutuante",
+        "info": "Defina a mensagem que será enviada automaticamente ao iniciar uma conversa pelo WhatsApp flutuante",
+        "default": "Olá"
+      },
+      {
+        "type": "select",
+        "id": "floating_whatsapp_position",
+        "label": "Posição do WhatsApp flutuante",
+        "options": [
+          { "value": "left", "label": "Esquerda" },
+          { "value": "right", "label": "Direita" }
+        ],
+        "default": "right",
+        "info": "Escolha o lado da tela para exibir o botão flutuante do WhatsApp"
+      },
+      {
+        "type": "header",
+        "content": "Configurações do botão do WhatsApp"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_whatsapp_on_card",
+        "label": "Exibir WhatsApp na vitrine e página de produto",
+        "default": false,
+        "info": "Ative para exibir o botão do WhatsApp nas vitrines de produtos e na página de detalhes do produto"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_button_text",
+        "label": "Texto do botão do WhatsApp flutuante",
+        "default": "Fale conosco pelo WhatsApp",
+        "info": "Defina o texto que será exibido no botão do WhatsApp"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_showcase_card_text",
+        "label": "Texto do botão do WhatsApp na vitrine e página de produto",
+        "default": "Comprar no WhatsApp",
+        "info": "Defina o texto que será exibido no botão do WhatsApp nas vitrines de produtos e na página de detalhes do produto"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_showcase_card_link_text",
+        "label": "Texto do link do botão do WhatsApp na vitrine e página de produto",
+        "default": "Gostaria de saber mais informações sobre o produto: ",
+        "info": "Defina o texto do link exibido no botão do WhatsApp nas vitrines de produtos e na página de detalhes do produto"
       }
     ]
   }

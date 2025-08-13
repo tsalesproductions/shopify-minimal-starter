@@ -1,0 +1,98 @@
+{% schema %}
+{
+  "name": "Hero Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Título Principal",
+      "default": "Elegância e Sofisticação para seu Pet"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_subtitle", 
+      "label": "Subtítulo",
+      "default": "Acessórios premium que combinam estilo, conforto e tecnologia para o melhor amigo do homem."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Texto do Botão",
+      "default": "Explorar Coleção"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link do Botão"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Cor de Fundo",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Cor do Texto",
+      "default": "#ffffff"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Imagem de Fundo (Opcional)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Mostrar Overlay na Imagem",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner",
+      "category": "Seções"
+    }
+  ]
+}
+{% endschema %}
+
+<!-- Hero Banner -->
+<section class="relative text-white" 
+         style="background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }};">
+  
+  {% if section.settings.background_image %}
+    <div class="absolute inset-0">
+      <img src="{{ section.settings.background_image | image_url: width: 1920 }}" 
+           alt="{{ section.settings.hero_title }}"
+           width="1920"
+           height="1080"
+           class="w-full h-full object-cover">
+      {% if section.settings.show_overlay %}
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+      {% endif %}
+    </div>
+  {% endif %}
+  
+  <div class="relative container mx-auto px-4 py-16 md:py-24 flex flex-col items-center justify-center text-center z-10">
+    {% if section.settings.hero_title != blank %}
+      <h1 class="text-3xl md:text-5xl font-bold mb-4">
+        {{ section.settings.hero_title }}
+      </h1>
+    {% endif %}
+    
+    {% if section.settings.hero_subtitle != blank %}
+      <p class="text-lg md:text-xl max-w-2xl mb-8">
+        {{ section.settings.hero_subtitle }}
+      </p>
+    {% endif %}
+    
+    {% if section.settings.button_text != blank %}
+      <a href="{{ section.settings.button_link | default: '#' }}" 
+         class="bg-white text-black px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition inline-block">
+        {{ section.settings.button_text }}
+      </a>
+    {% endif %}
+  </div>
+</section>

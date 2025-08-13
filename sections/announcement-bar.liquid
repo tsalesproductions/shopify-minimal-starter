@@ -1,0 +1,28 @@
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "announcement_enabled",
+      "label": "Ativar anúncio",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement Text",
+      "default": "FRETE GRÁTIS PARA COMPRAS ACIMA DE R$150 • GANHE UM BRINDE EXCLUSIVO NAS COMPRAS ACIMA DE R$150 • NOVOS PRODUTOS TODA SEMANA • FRETE GRÁTIS PARA COMPRAS ACIMA DE R$150"
+    }
+  ]
+}
+{% endschema %}
+
+<!-- Top announcement bar -->
+{% if section.settings.announcement_enabled %}
+<div class="bg-black text-white py-2 overflow-hidden">
+    <div class="scrolling-text">
+        {{ section.settings.announcement_text }}
+    </div>
+</div>
+{% endif %}

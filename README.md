@@ -35,3 +35,8 @@ Este é um boilerplate mínimo para iniciar o desenvolvimento de um tema Shopify
 ## Dicas
 - Organize componentes reutilizáveis em `src/components/`.
 - Mantenha o README atualizado para facilitar a colaboração. 
+
+
+
+## Shopify utils
+- (Input Settings)[https://shopify.dev/docs/storefronts/themes/architecture/settings/input-settings#range]

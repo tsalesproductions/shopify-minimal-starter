@@ -1,0 +1,10 @@
+.custom-option:checked + label {
+  border-color: black;
+  background-color: black;
+  color: white;
+}
+
+[data-add-to-cart]:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}

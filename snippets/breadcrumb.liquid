@@ -1,0 +1,53 @@
+<!-- Breadcrumb -->
+<div class="bg-white border-b border-t">
+    <div class="container mx-auto px-4 py-2">
+        <nav class="flex" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2 text-sm text-gray-600">
+                <li>
+                    <a href="{{ routes.root_url }}" class="hover:text-black">Home</a>
+                </li>
+                {% if template contains 'collection' %}
+                    <li>
+                        <span class="mx-2">/</span>
+                        <span class="font-medium text-black">{{ collection.title }}</span>
+                    </li>
+                {% elsif template contains 'product' %}
+                    {% if product.collections.first %}
+                        <li>
+                            <span class="mx-2">/</span>
+                            <a href="{{ product.collections.first.url }}" class="hover:text-black">{{ product.collections.first.title }}</a>
+                        </li>
+                    {% endif %}
+                    <li>
+                        <span class="mx-2">/</span>
+                        <span class="font-medium text-black">{{ product.title }}</span>
+                    </li>
+                {% elsif template contains 'page' %}
+                     <li>
+                        <span class="mx-2">/</span>
+                        <span class="font-medium text-black">{{ page.title }}</span>
+                    </li>
+                {% elsif template contains 'blog' %}
+                    <li>
+                        <span class="mx-2">/</span>
+                        <span class="font-medium text-black">{{ blog.title }}</span>
+                    </li>
+                {% elsif template contains 'article' %}
+                     <li>
+                        <span class="mx-2">/</span>
+                        <a href="{{ blog.url }}" class="hover:text-black">{{ blog.title }}</a>
+                    </li>
+                    <li>
+                        <span class="mx-2">/</span>
+                        <span class="font-medium text-black">{{ article.title }}</span>
+                    </li>
+                {% else %}
+                    <li>
+                        <span class="mx-2">/</span>
+                        <span class="font-medium text-black">{{ page_title }}</span>
+                    </li>
+                {% endif %}
+            </ol>
+        </nav>
+    </div>
+</div>

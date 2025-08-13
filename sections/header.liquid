@@ -1,30 +1,105 @@
-<header>
-  <h1><a href="/">{{ shop.name }}</a></h1>
-  <nav role="navigation">
-    <ul>
-      {%- for link in linklists.main-menu.links -%}
-        <li>
-          <a href="{{ link.url }}" {% if link.active %}aria-current="page"{% endif %}>{{ link.title }}</a>
-          {%- if link.links != blank -%}
-            <ul>
-              {%- for child_link in link.links -%}
-                <li>
-                  <a href="{{ child_link.url }}" {% if child_link.active %}aria-current="page"{% endif %}>{{ child_link.title }}</a>
-                  {%- if child_link.links != blank -%}
-                    <ul>
-                      {%- for grandchild_link in child_link.links -%}
-                        <li>
-                          <a href="{{ grandchild_link.url }}" {% if grandchild_link.active %}aria-current="page"{% endif %}>{{ grandchild_link.title }}</a>
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                  {%- endif -%}
-                </li>
-              {%- endfor -%}
-            </ul>
-          {%- endif -%}
-        </li>
-      {%- endfor -%}
-    </ul>
-  </nav>
-</header> 
+<!-- Header -->
+<header class="bg-white shadow-sm">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+        <!-- Mobile menu button - Now more visible -->
+        <button id="menu-button" class="lg:hidden menu-button">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+        
+        <!-- Logo -->
+        <div class="flex-1 lg:flex-none text-center lg:text-left">
+            <a href="/" class="text-2xl font-bold tracking-tighter">
+                <span class="text-black">Doggy</span><span class="text-gray-600">Shine</span>
+            </a>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center space-x-8">
+          {%- for link in linklists.main-menu.links -%}
+            <a href="{{ link.url }}" class="font-medium hover:text-gray-600 transition" {% if link.active %}aria-current="page"{% endif %}>
+              {{ link.title }}
+            </a>
+          {%- endfor -%}
+        </nav>
+        
+        <!-- Search, Account, Cart -->
+        <div class="flex items-center space-x-4">
+            <div class="hidden md:block relative">
+                <form action="/search" method="get" class="relative">
+                  <input 
+                    type="text" 
+                    name="q" 
+                    placeholder="Buscar produtos..." 
+                    class="pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-1 focus:ring-black focus:border-black text-sm w-48 lg:w-64"
+                    value="{{ search.terms | escape }}"
+                  >
+                  <button type="submit" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </form>
+            </div>
+            <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="text-black hover:text-gray-600 transition" aria-label="Account">
+                <i class="fas fa-user text-xl"></i>
+            </a>
+            <button id="cart-button" class="text-black hover:text-gray-600 transition relative">
+                <i class="fas fa-shopping-bag text-xl"></i>
+                <span class="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full h-5 w-5 flex items-center justify-center" data-cart-qtd>{{ cart.item_count }}</span>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Mobile search bar -->
+    <div class="px-4 py-2 lg:hidden">
+      <form action="/search" method="get" class="relative">
+        <input 
+          type="text" 
+          name="q" 
+          placeholder="Buscar produtos..." 
+          class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-1 focus:ring-black focus:border-black text-sm"
+          value="{{ search.terms | escape }}"
+        >
+        <button type="submit" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+    </div>
+</header>
+
+
+<!-- Sidebar Menu -->
+<div id="sidebar" class="sidebar fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform -translate-x-full">
+    <div class="p-5">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-xl font-bold">Menu</h2>
+            <button id="close-menu" class="text-black">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+        
+        <nav class="space-y-4">
+            {%- for link in linklists.main-menu.links -%}
+              <a href="{{ link.url }}" class="block py-2 hover:text-gray-600 transition" {% if link.active %}aria-current="page"{% endif %}>
+                {{ link.title }}
+              </a>
+            {%- endfor -%}
+            
+            <div class="pt-4 mt-4 border-t border-gray-200">
+                <a href="https://dsclub.doggyshine.com.br/" class="flex items-center justify-between bg-black text-white py-3 px-4 rounded-lg hover:bg-gray-800 transition">
+                    <span>DSClub</span>
+                    <span class="crown-icon">👑</span>
+                </a>
+                <p class="text-xs text-gray-500 mt-2">Assine e ganhe benefícios exclusivos!</p>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<!-- Cart Sidebar -->
+<div id="cart-sidebar" class="cart-sidebar fixed top-0 right-0 h-full w-80 bg-white shadow-lg z-50 transform translate-x-full">
+    <div class="p-5 h-full flex flex-col cart-container">
+        {% render 'minicart' %}
+    </div>
+</div>
+
+<!-- Overlay -->
+<div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>

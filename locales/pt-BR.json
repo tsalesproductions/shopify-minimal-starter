@@ -1,0 +1,126 @@
+{
+  "general": {
+    "accessibility": {
+      "skip_to_content": "Pular para o conteúdo"
+    }
+  },
+  "products": {
+    "facets": {
+      "sort_by_label": "Ordenar por"
+    },
+    "product": {
+      "add_to_cart": "Adicionar ao carrinho",
+      "sold_out": "Esgotado",
+      "quantity": "Quantidade",
+      "price": "Preço",
+      "regular_price": "Preço regular",
+      "sale_price": "Preço promocional",
+      "sale": "Promoção"
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "Minha Conta",
+      "order_history": "Histórico de Pedidos",
+      "view_addresses": "Ver Endereços",
+      "log_out": "Sair"
+    },
+    "activate_account": {
+      "title": "Ativar Conta",
+      "subtext": "Crie sua senha para ativar sua conta.",
+      "password": "Senha",
+      "password_confirm": "Confirmar Senha",
+      "submit": "Ativar Conta",
+      "cancel": "Recusar Convite"
+    },
+    "addresses": {
+      "title": "Seus Endereços",
+      "add_new": "Adicionar um Novo Endereço",
+      "edit_address": "Editar endereço",
+      "first_name": "Nome",
+      "last_name": "Sobrenome",
+      "company": "Empresa",
+      "address1": "Endereço 1",
+      "address2": "Endereço 2",
+      "city": "Cidade",
+      "country": "País",
+      "province": "Estado",
+      "zip": "CEP",
+      "phone": "Telefone",
+      "set_default": "Definir como endereço padrão",
+      "add": "Adicionar Endereço",
+      "update": "Atualizar Endereço",
+      "cancel": "Cancelar",
+      "delete": "Excluir",
+      "delete_confirm": "Tem certeza de que deseja excluir este endereço?"
+    },
+    "login": {
+      "title": "Login",
+      "email": "E-mail",
+      "password": "Senha",
+      "forgot_password": "Esqueceu sua senha?",
+      "sign_in": "Entrar",
+      "create_account": "Criar conta",
+      "guest_title": "Continuar como convidado"
+    },
+    "order": {
+      "title": "Pedido",
+      "order_number": "Número do Pedido",
+      "date": "Data",
+      "payment_status": "Status do Pagamento",
+      "fulfillment_status": "Status do Envio",
+      "total": "Total",
+      "billing_address": "Endereço de Cobrança",
+      "shipping_address": "Endereço de Entrega",
+      "product": "Produto",
+      "sku": "SKU",
+      "price": "Preço",
+      "quantity": "Quantidade"
+    },
+    "recover_password": {
+      "title": "Recuperar Senha",
+      "subtext": "Enviaremos um e-mail para você redefinir sua senha.",
+      "email": "E-mail",
+      "submit": "Enviar",
+      "cancel": "Cancelar"
+    },
+    "register": {
+      "title": "Criar Conta",
+      "first_name": "Nome",
+      "last_name": "Sobrenome",
+      "email": "E-mail",
+      "password": "Senha",
+      "create": "Criar"
+    },
+    "reset_password": {
+      "title": "Redefinir senha da conta",
+      "subtext": "Digite uma nova senha para sua conta.",
+      "password": "Senha",
+      "password_confirm": "Confirmar Senha",
+      "submit": "Redefinir Senha"
+    }
+  },
+  "collections": {
+    "sorting": {
+      "title": "Ordenar por",
+      "manual": "Destaques",
+      "best_selling": "Mais vendidos",
+      "alpha_asc": "Ordem alfabética, A-Z",
+      "alpha_desc": "Ordem alfabética, Z-A",
+      "price_asc": "Preço, menor para o maior",
+      "price_desc": "Preço, maior para o menor",
+      "date_asc": "Data, antigos para novos",
+      "date_desc": "Data, novos para antigos"
+    },
+    "general": {
+        "no_matches": "Nenhum produto encontrado"
+    }
+  },
+  "general": {
+    "pagination": {
+        "previous": "Anterior",
+        "next": "Próxima",
+        "page": "Página {{ number }}"
+    }
+  }
+}

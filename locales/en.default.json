@@ -4,5 +4,124 @@
     "search": "Search",
     "cart": "Cart",
     "home": "Home"
+  },
+  "customer": {
+    "account": {
+      "title": "My Account",
+      "order_history": "Order History",
+      "view_addresses": "View Addresses",
+      "log_out": "Log Out"
+    },
+    "activate_account": {
+      "title": "Activate Account",
+      "subtext": "Create your password to activate your account.",
+      "password": "Password",
+      "password_confirm": "Confirm Password",
+      "submit": "Activate Account",
+      "cancel": "Decline Invitation"
+    },
+    "addresses": {
+      "title": "Your Addresses",
+      "add_new": "Add a New Address",
+      "edit_address": "Edit address",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "company": "Company",
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "City",
+      "country": "Country",
+      "province": "Province",
+      "zip": "Postal/Zip Code",
+      "phone": "Phone",
+      "set_default": "Set as default address",
+      "add": "Add Address",
+      "update": "Update Address",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "delete_confirm": "Are you sure you wish to delete this address?"
+    },
+    "login": {
+      "title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "forgot_password": "Forgot your password?",
+      "sign_in": "Sign In",
+      "create_account": "Create account",
+      "guest_title": "Continue as a guest"
+    },
+    "order": {
+      "title": "Order",
+      "order_number": "Order Number",
+      "date": "Date",
+      "payment_status": "Payment Status",
+      "fulfillment_status": "Fulfillment Status",
+      "total": "Total",
+      "billing_address": "Billing Address",
+      "shipping_address": "Shipping Address",
+      "product": "Product",
+      "sku": "SKU",
+      "price": "Price",
+      "quantity": "Quantity"
+    },
+    "recover_password": {
+      "title": "Recover Password",
+      "subtext": "We will send you an email to reset your password.",
+      "email": "Email",
+      "submit": "Submit",
+      "cancel": "Cancel"
+    },
+    "register": {
+      "title": "Create Account",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "Email",
+      "password": "Password",
+      "create": "Create"
+    },
+    "reset_password": {
+      "title": "Reset account password",
+      "subtext": "Enter a new password for your account.",
+      "password": "Password",
+      "password_confirm": "Confirm Password",
+      "submit": "Reset Password"
+    }
+  },
+  "collections": {
+    "sorting": {
+      "title": "Sort by",
+      "manual": "Featured",
+      "best_selling": "Best selling",
+      "alpha_asc": "Alphabetically, A-Z",
+      "alpha_desc": "Alphabetically, Z-A",
+      "price_asc": "Price, low to high",
+      "price_desc": "Price, high to low",
+      "date_asc": "Date, old to new",
+      "date_desc": "Date, new to old"
+    },
+    "general": {
+        "no_matches": "No products found"
+    }
+  },
+  "products": {
+    "facets": {
+      "sort_by_label": "Sort by"
+    },
+    "product": {
+      "add_to_cart": "Add to cart",
+      "sold_out": "Sold out",
+      "quantity": "Quantity",
+      "price": "Price",
+      "regular_price": "Regular price",
+      "sale_price": "Sale price",
+      "sale": "Sale"
+    }
+  },
+  "general": {
+    "pagination": {
+        "previous": "Previous",
+        "next": "Next",
+        "page": "Page {{ number }}"
+    }
   }
-} 
+}

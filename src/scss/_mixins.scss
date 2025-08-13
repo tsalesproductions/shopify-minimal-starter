@@ -15,4 +15,47 @@
   @media (min-width: 1025px) {
     @content;
   }
-} 
+}
+
+@mixin desktop {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin icon-loader-default{
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24"><defs><path id="_265464792__a" d="M4 21A9 9 0 0 0 4 3a1 1 0 1 0 0 2 7 7 0 1 1 0 14 1 1 0 0 0 0 2z"></path></defs><use fill="currentColor" fill-rule="nonzero" transform="matrix(-1 0 0 1 16 0)" xlink:href="%23_265464792__a"></use></svg>');
+}
+
+@mixin icon-loader-white{
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24" style="&%2310;"><defs><path id="_265464792__a" d="M4 21A9 9 0 0 0 4 3a1 1 0 1 0 0 2 7 7 0 1 1 0 14 1 1 0 0 0 0 2z"/></defs><use fill="currentColor" fill-rule="nonzero" transform="matrix(-1 0 0 1 16 0)" xlink:href="%23_265464792__a" style="&%2310; fill: %23fff;&%2310;"/></svg>');
+}
+
+@mixin loader($color: default) {
+  position: relative;
+
+  &.loading {
+    i,
+    svg {
+      display: none;
+    }
+
+    &::before {
+      content: "";
+      @if $color == white {
+        @include icon-loader-white();
+      } @else {
+        @include icon-loader-default();
+      }
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      opacity: 1 !important;
+      z-index: 2;
+      position: relative;
+      margin-right: 5px;
+      background-size: contain;
+      animation: spinner-rotate 1s infinite linear;
+    }
+  }
+}

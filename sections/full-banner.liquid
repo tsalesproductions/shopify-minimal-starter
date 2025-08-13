@@ -1,0 +1,99 @@
+
+{% assign block_count = section.blocks | size %}
+
+<div class="full-banners">
+    <div class="banners 
+    {% if block_count > 1 %} 
+        carrossel-enabled 
+    {% endif %}
+    ">
+        {% for block in section.blocks %}
+            <div class="banner">
+                {% if block.settings.link_url %}
+                    <a href="{{ block.settings.link_url }}">
+                {% endif %}
+
+                {% if block.settings.media_type == 'image' %}
+                    <picture>
+                    <source media="(max-width: 799px)" srcset="{{ block.settings.image_mobile | img_url: '600x' }}" />
+                    <source media="(min-width: 800px)" srcset="{{ block.settings.image_desktop | img_url: '1200x' }}" />
+                    <img src="{{ block.settings.image_desktop | img_url: '1200x' }}" alt="Banner Image" />
+                    </picture>
+                {% elsif block.settings.media_type == 'video' %}
+                    <video autoplay muted loop playsinline>
+                    <source media="(max-width: 799px)" src="{{ block.settings.video_url_mobile }}" type="video/mp4">
+                    <source media="(min-width: 800px)" src="{{ block.settings.video_url_desktop }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video>
+                {% endif %}
+
+                {% if block.settings.link_url %}
+                    </a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Full Banners",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "banner",
+      "name": "Banner",
+      "settings": [
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Imagem"
+            },
+            {
+              "value": "video",
+              "label": "Vídeo"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_desktop",
+          "label": "Imagem desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Imagem mobile"
+        },
+        {
+          "type": "url",
+          "id": "video_url_desktop",
+          "label": "Video URL desktop"
+        },
+        {
+          "type": "url",
+          "id": "video_url_mobile",
+          "label": "Video URL mobile"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link de redirecionamento"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Full Banners",
+      "category": "Custom"
+    }
+  ]
+}
+
+{% endschema %}

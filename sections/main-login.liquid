@@ -1,0 +1,80 @@
+<div class="max-w-md mx-auto py-12 px-4">
+  <h1 class="text-2xl font-bold text-center mb-6">{{ 'customer.login.title' | t }}</h1>
+
+  {%- form 'customer_login', class: 'login' -%}
+    {%- if form.errors -%}
+      <div class="mb-4">
+        {{ form.errors | default_errors }}
+      </div>
+    {%- endif -%}
+
+    <div class="mb-4">
+      <label for="customer_email" class="block text-sm font-medium text-gray-700">{{ 'customer.login.email' | t }}</label>
+      <input type="email" name="customer[email]" id="customer_email" class="mt-1 block w-full" autocomplete="email" autocapitalize="off">
+    </div>
+
+    {%- if form.password_needed -%}
+      <div class="mb-4">
+        <label for="customer_password" class="block text-sm font-medium text-gray-700">{{ 'customer.login.password' | t }}</label>
+        <input type="password" name="customer[password]" id="customer_password" class="mt-1 block w-full">
+      </div>
+    {%- endif -%}
+
+    <div class="flex items-center justify-between mb-4">
+      <a href="{{ routes.account_register_url }}" class="text-sm font-medium">{{ 'customer.login.create_account' | t }}</a>
+      <a href="#recover" class="text-sm font-medium">{{ 'customer.login.forgot_password' | t }}</a>
+    </div>
+
+    <button type="submit" class="w-full btn btn--primary">{{ 'customer.login.sign_in' | t }}</button>
+  {%- endform -%}
+
+  <div id="recover" style="display: none;" class="mt-8">
+    <h2 class="text-xl font-bold text-center mb-4">{{ 'customer.recover_password.title' | t }}</h2>
+    <p class="text-center mb-4">{{ 'customer.recover_password.subtext' | t }}</p>
+    {%- form 'recover_customer_password', id: 'recover_customer_password_form' -%}
+      {%- if form.errors -%}
+        <div class="mb-4">
+          {{ form.errors | default_errors }}
+        </div>
+      {%- endif -%}
+
+      <div class="mb-4">
+        <label for="recover-email">{{ 'customer.recover_password.email' | t }}</label>
+        <input type="email" name="email" id="recover-email" class="mt-1 block w-full">
+      </div>
+
+      <button type="submit" class="w-full btn btn--primary">{{ 'customer.recover_password.submit' | t }}</button>
+      <div class="text-center mt-4">
+        <a href="#" onclick="hideRecoverPasswordForm();return false;">{{ 'customer.recover_password.cancel' | t }}</a>
+      </div>
+    {%- endform -%}
+  </div>
+</div>
+
+<script>
+  function showRecoverPasswordForm() {
+    document.getElementById('recover').style.display = 'block';
+    document.querySelector('.login').style.display = 'none';
+  }
+
+  function hideRecoverPasswordForm() {
+    document.getElementById('recover').style.display = 'none';
+    document.querySelector('.login').style.display = 'block';
+  }
+
+  if (window.location.hash === '#recover') {
+    showRecoverPasswordForm();
+  }
+
+  document.querySelector('a[href="#recover"]').addEventListener('click', function(event) {
+    event.preventDefault();
+    showRecoverPasswordForm();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Main Login",
+  "settings": []
+}
+{% endschema %}
