@@ -9,7 +9,7 @@
     "tailwind": "npx @tailwindcss/cli -i ./src/tailwind-input.css -o ./assets/tailwind.min.css --minify",
     "lint": "gulp lintSass && gulp lintJs",
     "serve": "gulp serve",
-    "theme push": "shopify theme push --theme 154088636635 --ignore config/settings_data.json"
+    "theme-push": "shopify theme push --theme 154092110043 --ignore config/settings_data.json"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",

@@ -51,6 +51,11 @@
             cursor: pointer;
             transition: background 0.3s;
 
+            &::after,
+            &::before {
+                display: none !important;
+            }
+
             &:hover,
             &:focus {
                 background: var(--arrows-dots-inactive-bg);
