@@ -1,0 +1,33 @@
+<div class="container mx-auto px-4 py-12">
+  <h1 class="text-3xl font-bold text-center mb-8">Nossas Coleções</h1>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    {% for collection in collections %}
+      {% if collection.all_products_count > 0 %}
+        <a href="{{ collection.url }}" class="group block">
+          <div class="relative overflow-hidden rounded-lg shadow-md">
+            {% if collection.image %}
+              <img
+                src="{{ collection.image | image_url: width: 400 }}"
+                alt="{{ collection.title | escape }}"
+                width="400"
+                height="400"
+                class="w-full h-64 object-cover transform transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              >
+            {% else %}
+              <div class="w-full h-64 bg-gray-200 flex items-center justify-center">
+                <span class="text-gray-500">Sem imagem</span>
+              </div>
+            {% endif %}
+            <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-opacity duration-300"></div>
+            <div class="absolute bottom-0 left-0 p-4">
+              <h2 class="text-xl font-semibold text-white">{{ collection.title }}</h2>
+              <p class="text-sm text-white">{{ collection.all_products_count }} produtos</p>
+            </div>
+          </div>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
